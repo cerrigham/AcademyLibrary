@@ -1,26 +1,35 @@
 package it.proactivity.model;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Client {
     private Long id;
     private String name;
     private String surname;
-    private Integer age;
-
+    private LocalDate dateOfBirthday;
     private String address;
 
-    private Set<Objects> loanBooks = new HashSet<>();
+    private Boolean professor;
 
-    private List<Objects> booksBought = new ArrayList<>();
+    private Boolean student;
+
+    private String email;
+
+    private String phoneNumber = "+39 ";
 
     public Client() {}
 
-    public Client(Long id, String name, String surname, Integer age, String address) {
+    public Client(Long id, String name, String surname, LocalDate dateOfBirthday, String address, Boolean professor,
+                  Boolean student, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.dateOfBirthday = dateOfBirthday;
         this.address = address;
+        this.professor = professor;
+        this.student = student;
+        this.email = email;
+        this.phoneNumber += phoneNumber;
     }
 
     public Long getId() {
@@ -47,12 +56,12 @@ public class Client {
         this.surname = surname;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getDateOfBirthday() {
+        return dateOfBirthday;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirthday(LocalDate dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public String getAddress() {
@@ -63,20 +72,36 @@ public class Client {
         this.address = address;
     }
 
-    public Set<Objects> getLoanBooks() {
-        return loanBooks;
+    public Boolean getProfessor() {
+        return professor;
     }
 
-    public void setLoanBooks(Set<Objects> loanBooks) {
-        this.loanBooks = loanBooks;
+    public void setProfessor(Boolean professor) {
+        this.professor = professor;
     }
 
-    public List<Objects> getBooksBought() {
-        return booksBought;
+    public Boolean getStudent() {
+        return student;
     }
 
-    public void setBooksBought(List<Objects> booksBought) {
-        this.booksBought = booksBought;
+    public void setStudent(Boolean student) {
+        this.student = student;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -84,17 +109,16 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(id, client.id) &&
-                Objects.equals(name.toLowerCase(), client.name.toLowerCase()) &&
-                Objects.equals(surname.toLowerCase(), client.surname.toLowerCase()) &&
-                Objects.equals(age, client.age) &&
-                Objects.equals(address.toLowerCase(), client.address.toLowerCase()) &&
-                Objects.equals(loanBooks, client.loanBooks) && Objects.equals(booksBought, client.booksBought);
+        return Objects.equals(id, client.id) && Objects.equals(name, client.name) &&
+                Objects.equals(surname, client.surname) && Objects.equals(dateOfBirthday, client.dateOfBirthday) &&
+                Objects.equals(address, client.address) && Objects.equals(professor, client.professor) &&
+                Objects.equals(student, client.student) && Objects.equals(email, client.email) &&
+                Objects.equals(phoneNumber, client.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, age, address, loanBooks, booksBought);
+        return Objects.hash(id, name, surname, dateOfBirthday, address, professor, student, email, phoneNumber);
     }
 
     @Override
@@ -102,7 +126,7 @@ public class Client {
         return """
                 The name of the client is : %s,
                 the surname is : %s,
-                the age is : %s
-                """.formatted(this.name, this.surname, this.age);
+                the date of birthday : %s
+                """.formatted(this.name, this.surname, this.dateOfBirthday);
     }
 }
