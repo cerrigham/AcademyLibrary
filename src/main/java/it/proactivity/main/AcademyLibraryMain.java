@@ -1,16 +1,11 @@
 package it.proactivity.main;
 
-import it.proactivity.model.Book;
-import it.proactivity.model.Genre;
+import it.proactivity.model.*;
 
 import java.util.Date;
 
-import it.proactivity.model.LibraryDetail;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import it.proactivity.model.Client;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -18,7 +13,9 @@ import java.time.Month;
 public class AcademyLibraryMain {
 
     public static void main(String[] args) {
-        Book book = new Book("Game of Thrones The Winds of Winter", "George R.R. Martin",
+        Author author = new Author(1l, "George R.R.","Martin",
+                LocalDate.of(1948, 9,20),null,"American");
+        Book book = new Book("Game of Thrones The Winds of Winter", author,
                 "Bantam", 1l, 21.25f, 1200,
                 Boolean.FALSE, "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
