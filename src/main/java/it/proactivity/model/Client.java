@@ -74,9 +74,12 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(name, client.name) && Objects.equals(surname, client.surname) &&
-                Objects.equals(age, client.age) && Objects.equals(personalCode, client.personalCode) &&
-                Objects.equals(eight, client.eight) && Objects.equals(eyesColor, client.eyesColor);
+        return Objects.equals(name.toLowerCase(), client.name.toLowerCase()) &&
+                Objects.equals(surname.toLowerCase(), client.surname.toLowerCase()) &&
+                Objects.equals(age, client.age) &&
+                Objects.equals(personalCode.toLowerCase(), client.personalCode.toLowerCase()) &&
+                Objects.equals(eight, client.eight) &&
+                Objects.equals(eyesColor.toLowerCase(), client.eyesColor.toLowerCase());
     }
 
     @Override
