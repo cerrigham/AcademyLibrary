@@ -1,24 +1,34 @@
 package it.proactivity.model;
-
-import java.util.Objects;
+import java.util.*;
 
 public class Client {
+    private Long id;
     private String name;
     private String surname;
     private Integer age;
-    private String personalCode;
-    private Float eight;
-    private String eyesColor;
+
+    private String address;
+
+    private Set<Objects> loanBooks = new HashSet<>();
+
+    private List<Objects> booksBought = new ArrayList<>();
 
     public Client() {}
 
-    public Client(String name, String surname, Integer age, String personalCode, Float eight, String eyesColor) {
+    public Client(Long id, String name, String surname, Integer age, String address) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.personalCode = personalCode;
-        this.eight = eight;
-        this.eyesColor = eyesColor;
+        this.address = address;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,28 +55,28 @@ public class Client {
         this.age = age;
     }
 
-    public String getPersonalCode() {
-        return personalCode;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPersonalCode(String personalCode) {
-        this.personalCode = personalCode;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Float getEight() {
-        return eight;
+    public Set<Objects> getLoanBooks() {
+        return loanBooks;
     }
 
-    public void setEight(Float eight) {
-        this.eight = eight;
+    public void setLoanBooks(Set<Objects> loanBooks) {
+        this.loanBooks = loanBooks;
     }
 
-    public String getEyesColor() {
-        return eyesColor;
+    public List<Objects> getBooksBought() {
+        return booksBought;
     }
 
-    public void setEyesColor(String eyesColor) {
-        this.eyesColor = eyesColor;
+    public void setBooksBought(List<Objects> booksBought) {
+        this.booksBought = booksBought;
     }
 
     @Override
@@ -74,17 +84,17 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(name.toLowerCase(), client.name.toLowerCase()) &&
+        return Objects.equals(id, client.id) &&
+                Objects.equals(name.toLowerCase(), client.name.toLowerCase()) &&
                 Objects.equals(surname.toLowerCase(), client.surname.toLowerCase()) &&
                 Objects.equals(age, client.age) &&
-                Objects.equals(personalCode.toLowerCase(), client.personalCode.toLowerCase()) &&
-                Objects.equals(eight, client.eight) &&
-                Objects.equals(eyesColor.toLowerCase(), client.eyesColor.toLowerCase());
+                Objects.equals(address.toLowerCase(), client.address.toLowerCase()) &&
+                Objects.equals(loanBooks, client.loanBooks) && Objects.equals(booksBought, client.booksBought);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, age, personalCode, eight, eyesColor);
+        return Objects.hash(id, name, surname, age, address, loanBooks, booksBought);
     }
 
     @Override
@@ -92,11 +102,7 @@ public class Client {
         return """
                 The name of the client is : %s,
                 the surname is : %s,
-                the age is : %s,
-                the personal code is : %s,
-                is taller : %s,
-                and the color of the eyes is : %s  
-             
-                """.formatted(this.name, this.surname, this.age, this.personalCode, this.eight, this.eyesColor);
+                the age is : %s
+                """.formatted(this.name, this.surname, this.age);
     }
 }
