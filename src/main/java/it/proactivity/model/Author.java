@@ -7,20 +7,18 @@ public class Author {
     private Long id;
     private String name;
     private String surname;
-    private LocalDate dateofBirth;
-    private LocalDate dateofDeath;
+    private LocalDate dateOfBirth;
+    private LocalDate dateOfDeath;
     private String nationality;
 
-    Author() {
-    }
+    Author() {}
 
-    public Author(Long id, String name, String surname, LocalDate dateofBirth, LocalDate dateofDeath,
-                  String nationality) {
+    public Author(Long id, String name, String surname, LocalDate dateOfBirth, LocalDate dateOfDeath, String nationality) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.dateofBirth = dateofBirth;
-        this.dateofDeath = dateofDeath;
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfDeath = dateOfDeath;
         this.nationality = nationality;
     }
 
@@ -48,20 +46,20 @@ public class Author {
         this.surname = surname;
     }
 
-    public LocalDate getDateofBirth() {
-        return dateofBirth;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDateofBirth(LocalDate dateofBirth) {
-        this.dateofBirth = dateofBirth;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDate getDateofDeath() {
-        return dateofDeath;
+    public LocalDate getDateOfDeath() {
+        return dateOfDeath;
     }
 
-    public void setDateofDeath(LocalDate dateofDeath) {
-        this.dateofDeath = dateofDeath;
+    public void setDateOfDeath(LocalDate dateOfDeath) {
+        this.dateOfDeath = dateOfDeath;
     }
 
     public String getNationality() {
@@ -73,24 +71,29 @@ public class Author {
     }
 
     @Override
-    public String toString() {
-        return "id :" + id + "Name : " + name + "Surname: " + surname + "Date of birth: " + dateofBirth +
-                "Date of death: " + dateofDeath;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return Objects.equals(id, author.id) && Objects.equals(name, author.name) &&
-                Objects.equals(surname, author.surname) && Objects.equals(dateofBirth, author.dateofBirth) &&
-                Objects.equals(dateofDeath, author.dateofDeath) &&
-                Objects.equals(nationality, author.nationality);
+        return Objects.equals(id, author.id) && Objects.equals(name, author.name)
+                && Objects.equals(surname, author.surname) && Objects.equals(dateOfBirth, author.dateOfBirth)
+                && Objects.equals(dateOfDeath, author.dateOfDeath) && Objects.equals(nationality, author.nationality);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, dateofBirth, dateofDeath, nationality);
+        return Objects.hash(id, name, surname, dateOfBirth, dateOfDeath, nationality);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfDeath=" + dateOfDeath +
+                ", nationality='" + nationality + '\'' +
+                '}';
     }
 }

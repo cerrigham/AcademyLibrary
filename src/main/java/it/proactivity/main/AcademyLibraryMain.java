@@ -13,9 +13,9 @@ import java.time.Month;
 public class AcademyLibraryMain {
 
     public static void main(String[] args) {
-        Author author = new Author(1l, "George R.R.","Martin",
+        Author georgeMartin = new Author(1l, "George R.R.","Martin",
                 LocalDate.of(1948, 9,20),null,"American");
-        Book book = new Book("Game of Thrones The Winds of Winter", author,
+        Book book = new Book("Game of Thrones The Winds of Winter", georgeMartin,
                 "Bantam", 1l, 21.25f, 1200,
                 Boolean.FALSE, "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
