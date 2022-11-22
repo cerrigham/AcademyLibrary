@@ -1,16 +1,11 @@
 package it.proactivity.main;
 
-import it.proactivity.model.Book;
-import it.proactivity.model.Genre;
+import it.proactivity.model.*;
 
 import java.util.Date;
 
-import it.proactivity.model.LibraryDetail;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import it.proactivity.model.Client;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -18,8 +13,10 @@ import java.time.Month;
 public class AcademyLibraryMain {
 
     public static void main(String[] args) {
+        PublishingHouse rscMediaGroup = new PublishingHouse(001l,"RSC MediaGroup","Italy",
+                "Milan",846000000f,"Angelo Rizzoli",4000);
         Book book = new Book("Game of Thrones The Winds of Winter", "George R.R. Martin",
-                "Bantam", 1l, 21.25f, 1200,
+                rscMediaGroup, 1l, 21.25f, 1200,
                 Boolean.FALSE, null, "first reprint", Genre.Fantasy,
                 "99999999999999");
         System.out.println(book);
