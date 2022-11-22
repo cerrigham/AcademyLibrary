@@ -2,44 +2,41 @@ package it.proactivity.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Objects;
+import java.util.*;
 
 public class LibraryDetail {
-    private String books;
-    private String place;
+
+    private String adress;
+    private Boolean comunal;
     private LocalDateTime timeThatOpens;
-    private LocalDateTime timeThatCloses;
-    private LocalDate DaysThatIsOpen;
-    private LocalDate DaysThatIsClose;
+    private Calendar dayThatIsOpen;
+    private Map<String, LocalDateTime> localDateTimeMap = new TreeMap<>();
 
-    LibraryDetail() {
-    }
+    LibraryDetail() {}
 
-    public LibraryDetail(String books, String place, LocalDateTime timeThatOpens,
-                         LocalDateTime timeThatCloses,
-                         LocalDate daysThatIsOpen, LocalDate daysThatIsClose) {
-        this.books = books;
-        this.place = place;
+    public LibraryDetail(String adress, Boolean comunal, LocalDateTime timeThatOpens, Calendar dayThatIsOpen,
+                         Map<String, LocalDateTime> localDateTimeMap) {
+        this.adress = adress;
+        this.comunal = comunal;
         this.timeThatOpens = timeThatOpens;
-        this.timeThatCloses = timeThatCloses;
-        DaysThatIsOpen = daysThatIsOpen;
-        DaysThatIsClose = daysThatIsClose;
+        this.dayThatIsOpen = dayThatIsOpen;
+        this.localDateTimeMap = localDateTimeMap;
     }
 
-    public String getBooks() {
-        return books;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setBooks(String books) {
-        this.books = books;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
-    public String getPlace() {
-        return place;
+    public Boolean getComunal() {
+        return comunal;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setComunal(Boolean comunal) {
+        this.comunal = comunal;
     }
 
     public LocalDateTime getTimeThatOpens() {
@@ -50,34 +47,20 @@ public class LibraryDetail {
         this.timeThatOpens = timeThatOpens;
     }
 
-    public LocalDateTime getTimeThatCloses() {
-        return timeThatCloses;
+    public Calendar getDayThatIsOpen() {
+        return dayThatIsOpen;
     }
 
-    public void setTimeThatCloses(LocalDateTime timeThatCloses) {
-        this.timeThatCloses = timeThatCloses;
+    public void setDayThatIsOpen(Calendar dayThatIsOpen) {
+        this.dayThatIsOpen = dayThatIsOpen;
     }
 
-    public LocalDate getDaysThatIsOpen() {
-        return DaysThatIsOpen;
+    public Map<String, LocalDateTime> getLocalDateTimeMap() {
+        return localDateTimeMap;
     }
 
-    public void setDaysThatIsOpen(LocalDate daysThatIsOpen) {
-        DaysThatIsOpen = daysThatIsOpen;
-    }
-
-    public LocalDate getDaysThatIsClose() {
-        return DaysThatIsClose;
-    }
-
-    public void setDaysThatIsClose(LocalDate daysThatIsClose) {
-        DaysThatIsClose = daysThatIsClose;
-    }
-
-    @Override
-    public String toString() {
-        return books + " " + place + " " + timeThatOpens + " " + timeThatCloses + " " + getDaysThatIsOpen()
-                + " " + getDaysThatIsClose();
+    public void setLocalDateTimeMap(Map<String, LocalDateTime> localDateTimeMap) {
+        this.localDateTimeMap = localDateTimeMap;
     }
 
     @Override
@@ -85,15 +68,21 @@ public class LibraryDetail {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LibraryDetail that = (LibraryDetail) o;
-        return Objects.equals(books, that.books) && Objects.equals(place, that.place) &&
-                Objects.equals(timeThatOpens, that.timeThatOpens) &&
-                Objects.equals(timeThatCloses, that.timeThatCloses) &&
-                Objects.equals(DaysThatIsOpen, that.DaysThatIsOpen) &&
-                Objects.equals(DaysThatIsClose, that.DaysThatIsClose);
+        return Objects.equals(adress, that.adress) && Objects.equals(comunal, that.comunal) && Objects.equals(timeThatOpens, that.timeThatOpens) && Objects.equals(dayThatIsOpen, that.dayThatIsOpen) && Objects.equals(localDateTimeMap, that.localDateTimeMap);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(books, place, timeThatOpens, timeThatCloses, DaysThatIsOpen, DaysThatIsClose);
+        return Objects.hash(adress, comunal, timeThatOpens, dayThatIsOpen, localDateTimeMap);
     }
+
+    @Override
+    public String toString() {
+        return   adress + " " + timeThatOpens + " " + comunal + " " + dayThatIsOpen
+                + " " + localDateTimeMap;
+    }
+
+
+
+
 }
