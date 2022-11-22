@@ -5,22 +5,27 @@ import java.util.*;
 
 public class LibraryDetail {
 
+    private String name;
     private String address;
-    private Boolean comunal;
+    private Boolean municipal;
 
     private Map<String, String> openingDaysAndHours = new HashMap<>();
-    private Map<String, String> closingDaysAndHours = new HashMap<>();
 
+    public LibraryDetail() {}
 
-    LibraryDetail() {
+    public LibraryDetail(String name, String address, Boolean municipal, Map<String, String> openingDaysAndHours) {
+        this.name = name;
+        this.address = address;
+        this.municipal = municipal;
+        this.openingDaysAndHours = openingDaysAndHours;
     }
 
-    public LibraryDetail(String address, Boolean comunal, Map<String, String> openingDaysAndHours,
-                         Map<String, String> closingDaysAndHours) {
-        this.address = address;
-        this.comunal = comunal;
-        this.openingDaysAndHours = openingDaysAndHours;
-        this.closingDaysAndHours = closingDaysAndHours;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -31,12 +36,12 @@ public class LibraryDetail {
         this.address = address;
     }
 
-    public Boolean getComunal() {
-        return comunal;
+    public Boolean getMunicipal() {
+        return municipal;
     }
 
-    public void setComunal(Boolean comunal) {
-        this.comunal = comunal;
+    public void setMunicipal(Boolean municipal) {
+        this.municipal = municipal;
     }
 
     public Map<String, String> getOpeningDaysAndHours() {
@@ -47,34 +52,25 @@ public class LibraryDetail {
         this.openingDaysAndHours = openingDaysAndHours;
     }
 
-    public Map<String, String> getClosingDaysAndHours() {
-        return closingDaysAndHours;
-    }
-
-    public void setClosingDaysAndHours(Map<String, String> closingDaysAndHours) {
-        this.closingDaysAndHours = closingDaysAndHours;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LibraryDetail that = (LibraryDetail) o;
-        return Objects.equals(address, that.address) && Objects.equals(comunal, that.comunal)
-                && Objects.equals(openingDaysAndHours, that.openingDaysAndHours) &&
-                Objects.equals(closingDaysAndHours, that.closingDaysAndHours);
+        return Objects.equals(name, that.name) && Objects.equals(address, that.address)
+                && Objects.equals(municipal, that.municipal)
+                && Objects.equals(openingDaysAndHours, that.openingDaysAndHours);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, comunal, openingDaysAndHours, closingDaysAndHours);
+        return Objects.hash(name, address, municipal, openingDaysAndHours);
     }
 
     @Override
     public String toString() {
-        return address + " " + comunal + " " + closingDaysAndHours
-                + " " + openingDaysAndHours;
+        return "LibraryDetail{" +
+                "name='" + name + '\'' +
+                '}';
     }
-
-
 }
