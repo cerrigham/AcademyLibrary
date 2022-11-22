@@ -1,5 +1,6 @@
 package it.proactivity.model;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Book {
@@ -7,22 +8,31 @@ public class Book {
     private String title;
     private String author;
     private String publishingHouse;
+
     private Long id;
-    private Float cost;
+    private Float price;
     private Integer numberOfPages;
     private Boolean isVirtual;
+    private Date yearOfPublication;
+    private String reprint;
+    private Genre genre;
+    private Long isbn;
 
     public Book() {}
 
-    public Book(String title, String author, String publishingHouse, Long id, Float cost, Integer numberOfPages,
-                Boolean isVirtual) {
+    public Book(String title, String author, String publishingHouse, Long id, Float price, Integer numberOfPages,
+                Boolean isVirtual, Date yearOfPublication, String reprint, Genre genre, Long isbn) {
         this.title = title;
         this.author = author;
         this.publishingHouse = publishingHouse;
         this.id = id;
-        this.cost = cost;
+        this.price = price;
         this.numberOfPages = numberOfPages;
         this.isVirtual = isVirtual;
+        this.yearOfPublication = yearOfPublication;
+        this.reprint = reprint;
+        this.genre = genre;
+        this.isbn = isbn;
     }
 
     public String getTitle() {
@@ -57,12 +67,12 @@ public class Book {
         this.id = id;
     }
 
-    public Float getCost() {
-        return cost;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setCost(Float cost) {
-        this.cost = cost;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public Integer getNumberOfPages() {
@@ -81,17 +91,49 @@ public class Book {
         isVirtual = virtual;
     }
 
+    public Date getYearOfPublication() {
+        return yearOfPublication;
+    }
+
+    public void setYearOfPublication(Date yearOfPublication) {
+        this.yearOfPublication = yearOfPublication;
+    }
+
+    public String getReprint() {
+        return reprint;
+    }
+
+    public void setReprint(String reprint) {
+        this.reprint = reprint;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public Long getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(publishingHouse, book.publishingHouse) && Objects.equals(id, book.id) && Objects.equals(cost, book.cost) && Objects.equals(numberOfPages, book.numberOfPages) && Objects.equals(isVirtual, book.isVirtual);
+        return Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(publishingHouse, book.publishingHouse) && Objects.equals(id, book.id) && Objects.equals(price, book.price) && Objects.equals(numberOfPages, book.numberOfPages) && Objects.equals(isVirtual, book.isVirtual) && Objects.equals(yearOfPublication, book.yearOfPublication) && Objects.equals(reprint, book.reprint) && genre == book.genre && Objects.equals(isbn, book.isbn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, publishingHouse, id, cost, numberOfPages, isVirtual);
+        return Objects.hash(title, author, publishingHouse, id, price, numberOfPages, isVirtual, yearOfPublication, reprint, genre, isbn);
     }
 
     @Override
