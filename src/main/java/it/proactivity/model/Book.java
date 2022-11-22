@@ -7,7 +7,7 @@ public class Book {
 
     private String title;
     private Author author;
-    private String publishingHouse;
+    private PublishingHouse publishingHouse;
     private Long id;
     private Float price;
     private Integer numberOfPages;
@@ -19,7 +19,7 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, Author author, String publishingHouse, Long id, Float price, Integer numberOfPages,
+    public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price, Integer numberOfPages,
                 Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,String isbn) {
         this.title = title;
         this.author = author;
@@ -50,11 +50,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPublishingHouse() {
+    public PublishingHouse getPublishingHouse() {
         return publishingHouse;
     }
 
-    public void setPublishingHouse(String publishingHouse) {
+    public void setPublishingHouse(PublishingHouse publishingHouse) {
         this.publishingHouse = publishingHouse;
     }
 

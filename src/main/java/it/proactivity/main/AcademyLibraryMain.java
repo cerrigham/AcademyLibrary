@@ -13,10 +13,14 @@ import java.time.Month;
 public class AcademyLibraryMain {
 
     public static void main(String[] args) {
+
+        PublishingHouse rscMediaGroup = new PublishingHouse(001l,"RSC MediaGroup","Italy",
+                "Milan",846000000f,"Angelo Rizzoli",4000);
+
         Author georgeMartin = new Author(1l, "George R.R.","Martin",
                 LocalDate.of(1948, 9,20),null,"American");
         Book book = new Book("Game of Thrones The Winds of Winter", georgeMartin,
-                "Bantam", 1l, 21.25f, 1200,
+                rscMediaGroup, 1l, 21.25f, 1200,
                 Boolean.FALSE, "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
         System.out.println(book);
