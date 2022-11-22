@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Author {
+
     private Long id;
     private String name;
     private String surname;
@@ -13,7 +14,8 @@ public class Author {
 
     Author() {}
 
-    public Author(Long id, String name, String surname, LocalDate dateOfBirth, LocalDate dateOfDeath, String nationality) {
+    public Author(Long id, String name, String surname, LocalDate dateOfBirth, LocalDate dateOfDeath,
+                  String nationality) {
         this.id = id;
         this.name = name;
         this.surname = surname;

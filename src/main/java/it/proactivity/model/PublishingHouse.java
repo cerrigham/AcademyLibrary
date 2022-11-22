@@ -3,6 +3,7 @@ package it.proactivity.model;
 import java.util.Objects;
 
 public class PublishingHouse {
+
     private Long id;
     private String name;
     private String nationality;

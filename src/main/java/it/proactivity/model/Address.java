@@ -3,6 +3,7 @@ package it.proactivity.model;
 import java.util.Objects;
 
 public class Address {
+
     private String houseNumber;
     private String street;
     private String municipality;

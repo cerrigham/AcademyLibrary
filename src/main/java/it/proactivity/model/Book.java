@@ -19,8 +19,9 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price, Integer numberOfPages,
-                Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,String isbn) {
+    public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price,
+                Integer numberOfPages, Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,
+                String isbn) {
         this.title = title;
         this.author = author;
         this.publishingHouse = publishingHouse;

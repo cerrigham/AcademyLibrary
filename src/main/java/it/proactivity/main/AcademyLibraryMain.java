@@ -32,7 +32,8 @@ public class AcademyLibraryMain {
         openingDays.put("Thursday", "9.00-12.00;14.00-19.00");
         openingDays.put("Friday", "9.00-12.00;14.00-19.00");
 
-        LibraryDetail libraryDetail = new LibraryDetail("Biblioteca centrale", new Address("3b", "via del corso", "Vigevano", "PV", "Italy"),
+        LibraryDetail libraryDetail = new LibraryDetail("Biblioteca centrale", new Address("3b", "via del corso",
+                "Vigevano", "PV", "Italy"),
                 false, openingDays);
 
         System.out.println(libraryDetail);
