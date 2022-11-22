@@ -20,11 +20,9 @@ public class AcademyLibraryMain {
     public static void main(String[] args) {
         Book book = new Book("Game of Thrones The Winds of Winter", "George R.R. Martin",
                 "Bantam", 1l, 21.25f, 1200,
-                Boolean.FALSE, null, "first reprint", Genre.Fantasy,
+                Boolean.FALSE, "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
         System.out.println(book);
-        System.out.println("Welcome to Academy Library Project");
-
 
         Map<String, String> openingDays = new HashMap<>();
         openingDays.put("Monday", "9.00-12.00;14.00-19.00");

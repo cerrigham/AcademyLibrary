@@ -12,7 +12,7 @@ public class Book {
     private Float price;
     private Integer numberOfPages;
     private Boolean Virtual;
-    private Date yearOfPublication;
+    private String yearOfPublication;
     private String reprint;
     private Genre genre;
     private String isbn;
@@ -20,7 +20,7 @@ public class Book {
     public Book() {}
 
     public Book(String title, String author, String publishingHouse, Long id, Float price, Integer numberOfPages,
-                Boolean isVirtual, Date yearOfPublication, String reprint, Genre genre,String isbn) {
+                Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,String isbn) {
         this.title = title;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -90,11 +90,11 @@ public class Book {
         Virtual = virtual;
     }
 
-    public Date getYearOfPublication() {
+    public String getYearOfPublication() {
         return yearOfPublication;
     }
 
-    public void setYearOfPublication(Date yearOfPublication) {
+    public void setYearOfPublication(String yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
 
