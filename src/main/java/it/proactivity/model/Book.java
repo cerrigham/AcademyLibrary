@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Book {
 
     private String title;
-    private String author;
+    private Author author;
     private String publishingHouse;
     private Long id;
     private Float price;
@@ -19,7 +19,7 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, String author, String publishingHouse, Long id, Float price, Integer numberOfPages,
+    public Book(String title, Author author, String publishingHouse, Long id, Float price, Integer numberOfPages,
                 Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,String isbn) {
         this.title = title;
         this.author = author;
@@ -42,11 +42,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
