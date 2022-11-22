@@ -10,6 +10,11 @@ import it.proactivity.model.LibraryDetail;
 import java.util.HashMap;
 import java.util.Map;
 
+import it.proactivity.model.Client;
+
+import java.time.LocalDate;
+import java.time.Month;
+
 public class AcademyLibraryMain {
 
     public static void main(String[] args) {
@@ -32,5 +37,9 @@ public class AcademyLibraryMain {
                 false, openingDays);
 
         System.out.println(libraryDetail);
+        Client marcoRossi = new Client(001l, "Marco", "Rossi",
+                LocalDate.of(2019, Month.AUGUST, 22), "corso regina 4",
+                Boolean.FALSE, Boolean.TRUE, "marco.rossi22@gmail.com", "3338657482");
+        System.out.println(marcoRossi);
     }
 }
