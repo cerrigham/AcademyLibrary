@@ -1,16 +1,11 @@
 package it.proactivity.main;
 
-import it.proactivity.model.Book;
-import it.proactivity.model.Genre;
+import it.proactivity.model.*;
 
 import java.util.Date;
 
-import it.proactivity.model.LibraryDetail;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import it.proactivity.model.Client;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -31,12 +26,12 @@ public class AcademyLibraryMain {
         openingDays.put("Thursday", "9.00-12.00;14.00-19.00");
         openingDays.put("Friday", "9.00-12.00;14.00-19.00");
 
-        LibraryDetail libraryDetail = new LibraryDetail("Biblioteca centrale", "Via del centro",
+        LibraryDetail libraryDetail = new LibraryDetail("Biblioteca centrale", new Address("3b", "via del corso", "Vigevano", "PV", "Italy"),
                 false, openingDays);
 
         System.out.println(libraryDetail);
         Client marcoRossi = new Client(001l, "Marco", "Rossi",
-                LocalDate.of(2019, Month.AUGUST, 22), "corso regina 4",
+                LocalDate.of(2019, Month.AUGUST, 22), new Address("45", "corso repubblica", "Vigevano", "PV", "Italy"),
                 Boolean.FALSE, Boolean.TRUE, "marco.rossi22@gmail.com", "3338657482");
         System.out.println(marcoRossi);
     }

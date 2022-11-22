@@ -7,7 +7,7 @@ public class Client {
     private String name;
     private String surname;
     private LocalDate dateOfBirthday;
-    private String address;
+    private Address address;
 
     private Boolean professor;
 
@@ -19,7 +19,7 @@ public class Client {
 
     public Client() {}
 
-    public Client(Long id, String name, String surname, LocalDate dateOfBirthday, String address, Boolean professor,
+    public Client(Long id, String name, String surname, LocalDate dateOfBirthday, Address address, Boolean professor,
                   Boolean student, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
@@ -64,11 +64,11 @@ public class Client {
         this.dateOfBirthday = dateOfBirthday;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

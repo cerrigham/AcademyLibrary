@@ -6,14 +6,14 @@ import java.util.*;
 public class LibraryDetail {
 
     private String name;
-    private String address;
+    private Address address;
     private Boolean municipal;
 
     private Map<String, String> openingDaysAndHours = new HashMap<>();
 
     public LibraryDetail() {}
 
-    public LibraryDetail(String name, String address, Boolean municipal, Map<String, String> openingDaysAndHours) {
+    public LibraryDetail(String name, Address address, Boolean municipal, Map<String, String> openingDaysAndHours) {
         this.name = name;
         this.address = address;
         this.municipal = municipal;
@@ -28,11 +28,11 @@ public class LibraryDetail {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
