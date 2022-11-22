@@ -1,34 +1,34 @@
 package it.proactivity.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class LibraryDetail {
 
-    private String adress;
+    private String address;
     private Boolean comunal;
-    private LocalDateTime timeThatOpens;
-    private Calendar dayThatIsOpen;
-    private Map<String, LocalDateTime> localDateTimeMap = new TreeMap<>();
 
-    LibraryDetail() {}
+    private Map<String, String> openingDaysAndHours = new HashMap<>();
+    private Map<String, String> closingDaysAndHours = new HashMap<>();
 
-    public LibraryDetail(String adress, Boolean comunal, LocalDateTime timeThatOpens, Calendar dayThatIsOpen,
-                         Map<String, LocalDateTime> localDateTimeMap) {
-        this.adress = adress;
+
+    LibraryDetail() {
+    }
+
+    public LibraryDetail(String address, Boolean comunal, Map<String, String> openingDaysAndHours,
+                         Map<String, String> closingDaysAndHours) {
+        this.address = address;
         this.comunal = comunal;
-        this.timeThatOpens = timeThatOpens;
-        this.dayThatIsOpen = dayThatIsOpen;
-        this.localDateTimeMap = localDateTimeMap;
+        this.openingDaysAndHours = openingDaysAndHours;
+        this.closingDaysAndHours = closingDaysAndHours;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Boolean getComunal() {
@@ -39,28 +39,20 @@ public class LibraryDetail {
         this.comunal = comunal;
     }
 
-    public LocalDateTime getTimeThatOpens() {
-        return timeThatOpens;
+    public Map<String, String> getOpeningDaysAndHours() {
+        return openingDaysAndHours;
     }
 
-    public void setTimeThatOpens(LocalDateTime timeThatOpens) {
-        this.timeThatOpens = timeThatOpens;
+    public void setOpeningDaysAndHours(Map<String, String> openingDaysAndHours) {
+        this.openingDaysAndHours = openingDaysAndHours;
     }
 
-    public Calendar getDayThatIsOpen() {
-        return dayThatIsOpen;
+    public Map<String, String> getClosingDaysAndHours() {
+        return closingDaysAndHours;
     }
 
-    public void setDayThatIsOpen(Calendar dayThatIsOpen) {
-        this.dayThatIsOpen = dayThatIsOpen;
-    }
-
-    public Map<String, LocalDateTime> getLocalDateTimeMap() {
-        return localDateTimeMap;
-    }
-
-    public void setLocalDateTimeMap(Map<String, LocalDateTime> localDateTimeMap) {
-        this.localDateTimeMap = localDateTimeMap;
+    public void setClosingDaysAndHours(Map<String, String> closingDaysAndHours) {
+        this.closingDaysAndHours = closingDaysAndHours;
     }
 
     @Override
@@ -68,21 +60,21 @@ public class LibraryDetail {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LibraryDetail that = (LibraryDetail) o;
-        return Objects.equals(adress, that.adress) && Objects.equals(comunal, that.comunal) && Objects.equals(timeThatOpens, that.timeThatOpens) && Objects.equals(dayThatIsOpen, that.dayThatIsOpen) && Objects.equals(localDateTimeMap, that.localDateTimeMap);
+        return Objects.equals(address, that.address) && Objects.equals(comunal, that.comunal)
+                && Objects.equals(openingDaysAndHours, that.openingDaysAndHours) &&
+                Objects.equals(closingDaysAndHours, that.closingDaysAndHours);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(adress, comunal, timeThatOpens, dayThatIsOpen, localDateTimeMap);
+        return Objects.hash(address, comunal, openingDaysAndHours, closingDaysAndHours);
     }
 
     @Override
     public String toString() {
-        return   adress + " " + timeThatOpens + " " + comunal + " " + dayThatIsOpen
-                + " " + localDateTimeMap;
+        return address + " " + comunal + " " + closingDaysAndHours
+                + " " + openingDaysAndHours;
     }
-
-
 
 
 }
