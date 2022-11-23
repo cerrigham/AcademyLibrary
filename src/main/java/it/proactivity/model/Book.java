@@ -1,5 +1,7 @@
 package it.proactivity.model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
@@ -145,5 +147,38 @@ public class Book {
     @Override
     public String toString() {
         return title + " " + author + " " + id;
+    }
+
+    public static PublishingHouse createPublishingHouse(String id, String name, String nationality, String city,
+                                                        String revenue, String foundator, String numberOfEmployees) {
+        Long parseId = Long.parseLong(id);
+        Float parseRevenue = Float.parseFloat(revenue);
+        Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
+
+        return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+    }
+
+    public static Author createAuthor(String id, String name, String surname, String dateOfBirth, String dateOfDeath,
+                                      String nationality) {
+
+        Long parseId = Long.parseLong(id);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirth,formatter);
+        LocalDate parseDateOfDeath = LocalDate.parse(dateOfDeath,formatter);
+
+        return new Author(parseId,name,surname,parseDateOfBirth,parseDateOfDeath,nationality);
+    }
+
+    public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
+                                  String numberOfPage, String virtual, String yearOfPublication, String reprint,
+                                  Genre genre, String isbn) {
+        Long parseId = Long.parseLong(id);
+        Float parsePrice = Float.parseFloat(price);
+        Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
+        Boolean parseVirtual = Boolean.parseBoolean(virtual);
+
+        return new Book(title,author,publishingHouse,parseId,parsePrice,parseNumberOfPage,parseVirtual,yearOfPublication,
+                reprint,genre,isbn);
     }
 }
