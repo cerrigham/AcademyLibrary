@@ -1,4 +1,5 @@
 package it.proactivity.model;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -18,10 +19,11 @@ public class Client {
 
     private String phoneNumber = "+39 ";
 
-    public Client() {}
+    public Client() {
+    }
 
-    public Client(Long id, String name, String surname, LocalDate dateOfBirthday, Address address, Boolean professor,
-                  Boolean student, String email, String phoneNumber) {
+    public Client(Long id, String name, String surname, LocalDate dateOfBirthday, Address address,
+                  Boolean professor, Boolean student, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -105,12 +107,20 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    public void clientPersonalDetails(String name, String surname, LocalDate dateOfBirthday, Address address) {
-        System.out.println("Client details: " + name + surname + dateOfBirthday + address);
-    }
 
-    public void clientInformation(Long id, String email, String phoneNumber, Boolean professor, Boolean student) {
-        System.out.println("Information: " + id + email + phoneNumber + professor + student);
+    public Client clientInformation(String id, String name, String surname, String dateOfBirthday,
+                                  String address, String professor, String student, String email,
+                                  String phoneNumber) {
+
+        Long myId = Long.parseLong(id);
+        LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
+        Boolean ifProfessor = Boolean.parseBoolean(professor);
+        Boolean ifStudent = Boolean.parseBoolean(student);
+        Address myAdress = new Address();
+
+
+        return new Client(myId, name, surname, dateBirth, myAdress, ifProfessor, ifStudent, email,
+                phoneNumber);
     }
 
 
