@@ -156,6 +156,18 @@ public class Book {
     public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                                   String numberOfPage, String virtual, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
+
+        if(title == null || author == null || publishingHouse == null || id == null || price == null ||
+                numberOfPage == null || virtual == null || yearOfPublication == null || reprint == null ||
+                genre == null || isbn == null) {
+            throw new NullPointerException("Attenzione, hai inserito uno o più parametri come null");
+        }
+
+        if(title.isEmpty() || id.isEmpty() || price.isEmpty() || numberOfPage.isEmpty() || virtual.isEmpty() ||
+        yearOfPublication.isEmpty() || reprint.isEmpty() || isbn.isEmpty()) {
+            throw new IllegalArgumentException("Una o più stringhe inserite sono vuote");
+        }
+
         Long parseId = Long.parseLong(id);
         Float parsePrice = Float.parseFloat(price);
         Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
