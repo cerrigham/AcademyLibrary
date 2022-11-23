@@ -78,6 +78,10 @@ public class Address {
     @Override
     public String toString() {
         return "Address: " + houseNumber + " " + street  + " " + municipality + " " + province + " " + nation;
+    }
 
+    public static Address createAddress(String houseNumber, String street, String municipality, String province,
+                                 String nation) {
+        return new Address(houseNumber, street, municipality, province, nation);
     }
 }

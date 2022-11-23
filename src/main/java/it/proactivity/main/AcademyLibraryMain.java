@@ -26,11 +26,11 @@ public class AcademyLibraryMain {
         System.out.println(book);
 
         Map<String, String> openingDays = new HashMap<>();
-        openingDays.put("Monday", "9.00-12.00;14.00-19.00");
-        openingDays.put("Tuesday", "9.00-12.00;14.00-19.00");
-        openingDays.put("Wednesday", "9.00-12.00;14.00-19.00");
-        openingDays.put("Thursday", "9.00-12.00;14.00-19.00");
-        openingDays.put("Friday", "9.00-12.00;14.00-19.00");
+        openingDays.put("Monday", "09.00-12.00;14.00-19.00");
+        openingDays.put("Tuesday", "09.00-12.00;14.00-19.00");
+        openingDays.put("Wednesday", "09.00-12.00;14.00-19.00");
+        openingDays.put("Thursday", "09.00-12.00;14.00-19.00");
+        openingDays.put("Friday", "09.00-12.00;14.00-19.00");
 
         LibraryDetail libraryDetail = new LibraryDetail("Biblioteca centrale", new Address("3b", "via del corso",
                 "Vigevano", "PV", "Italy"),

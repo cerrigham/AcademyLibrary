@@ -10,14 +10,10 @@ public class Client {
     private String surname;
     private LocalDate dateOfBirthday;
     private Address address;
-
     private Boolean professor;
-
     private Boolean student;
-
     private String email;
-
-    private String phoneNumber = "+39 ";
+    private String phoneNumber;
 
     public Client() {
     }
@@ -32,7 +28,7 @@ public class Client {
         this.professor = professor;
         this.student = student;
         this.email = email;
-        this.phoneNumber += phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -107,23 +103,6 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-
-    public Client clientInformation(String id, String name, String surname, String dateOfBirthday,
-                                  String address, String professor, String student, String email,
-                                  String phoneNumber) {
-
-        Long myId = Long.parseLong(id);
-        LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
-        Boolean ifProfessor = Boolean.parseBoolean(professor);
-        Boolean ifStudent = Boolean.parseBoolean(student);
-        Address myAdress = new Address();
-
-
-        return new Client(myId, name, surname, dateBirth, myAdress, ifProfessor, ifStudent, email,
-                phoneNumber);
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -149,4 +128,17 @@ public class Client {
                 the date of birthday : %s
                 """.formatted(this.name, this.surname, this.dateOfBirthday);
     }
+
+    public static Client clientInformation(String id, String name, String surname, String dateOfBirthday,
+                                           Address address, String professor, String student, String email,
+                                           String phoneNumber) {
+        Long myId = Long.parseLong(id);
+        LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
+        Boolean ifProfessor = Boolean.parseBoolean(professor);
+        Boolean ifStudent = Boolean.parseBoolean(student);
+
+        return new Client(myId, name, surname, dateBirth, address, ifProfessor, ifStudent, email,
+                phoneNumber);
+    }
+
 }

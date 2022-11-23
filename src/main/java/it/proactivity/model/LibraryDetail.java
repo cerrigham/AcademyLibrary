@@ -1,6 +1,9 @@
 package it.proactivity.model;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class LibraryDetail {
@@ -72,5 +75,33 @@ public class LibraryDetail {
         return "LibraryDetail{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    public Map<DayOfWeek, List<LocalTime>> openingDaysAndHourstoLocalDateTime() {
+        Map<DayOfWeek, List<LocalTime>> mapOpeningDaysAndHourstoLocalDateTime = new HashMap<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+
+        for (Map.Entry<String, String> entry : getOpeningDaysAndHours().entrySet()) {
+            DayOfWeek dayOfWeek = DayOfWeek.valueOf(entry.getKey().toUpperCase());
+
+            List<LocalTime> localDateTimeList = new LinkedList<>();
+            String[] arrayOpeningHour = entry.getValue().split(";");
+            String[] morningOpeningHour = arrayOpeningHour[0].split("-");
+            String[] afternoonOpeningHour = arrayOpeningHour[1].split("-");
+
+            for(String s : morningOpeningHour) {
+                LocalTime time = LocalTime.parse(s, formatter);
+                localDateTimeList.add(time);
+            }
+
+            for(String s : afternoonOpeningHour) {
+                LocalTime time = LocalTime.parse(s, formatter);
+                localDateTimeList.add(time);
+            }
+
+            mapOpeningDaysAndHourstoLocalDateTime.put(dayOfWeek, localDateTimeList);
+        }
+        return mapOpeningDaysAndHourstoLocalDateTime;
     }
 }
