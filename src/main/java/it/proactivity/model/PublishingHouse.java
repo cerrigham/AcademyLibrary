@@ -107,10 +107,13 @@ public class PublishingHouse {
 
     public static PublishingHouse createPublishingHouse(String id, String name, String nationality, String city,
                                                         String revenue, String foundator, String numberOfEmployees) {
-        Long parseId = Long.parseLong(id);
-        Float parseRevenue = Float.parseFloat(revenue);
-        Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
+        if (id == null || name == null || numberOfEmployees == null) {
+            throw new IllegalArgumentException();
+        }
+            Long parseId = Long.parseLong(id);
+            Float parseRevenue = Float.parseFloat(revenue);
+            Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
 
-        return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+            return new PublishingHouse(parseId, name, nationality, city, parseRevenue, foundator, parseNumberOfEmployees);
     }
 }

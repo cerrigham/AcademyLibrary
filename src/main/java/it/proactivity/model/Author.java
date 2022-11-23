@@ -104,7 +104,9 @@ public class Author {
 
     public static Author createAuthor(String id, String name, String surname, String dateOfBirth, String dateOfDeath,
                                       String nationality) {
-
+        if (name == null || surname == null) {
+            throw new IllegalArgumentException("Not a valid person");
+        }
         Long parseId = Long.parseLong(id);
         Locale locale = new Locale("it","IT");
 

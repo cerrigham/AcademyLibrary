@@ -11,7 +11,6 @@ public class LibraryDetail {
     private String name;
     private Address address;
     private Boolean municipal;
-
     private Map<String, String> openingDaysAndHours = new HashMap<>();
 
     public LibraryDetail() {}
@@ -81,6 +80,10 @@ public class LibraryDetail {
         Map<DayOfWeek, List<LocalTime>> mapOpeningDaysAndHourstoLocalDateTime = new HashMap<>();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+
+        if (mapOpeningDaysAndHourstoLocalDateTime == null) {
+            throw new NullPointerException("Map not valid");
+        }
 
         for (Map.Entry<String, String> entry : getOpeningDaysAndHours().entrySet()) {
             DayOfWeek dayOfWeek = DayOfWeek.valueOf(entry.getKey().toUpperCase());
