@@ -132,6 +132,25 @@ public class Client {
     public static Client clientInformation(String id, String name, String surname, String dateOfBirthday,
                                            Address address, String professor, String student, String email,
                                            String phoneNumber) {
+        if(id == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(name == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(surname == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(dateOfBirthday == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(address == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(professor == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(student == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(email == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+        if(phoneNumber == null)
+            throw new  NullPointerException ("Parameter cannot be null");
+
         Long myId = Long.parseLong(id);
         LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
         Boolean ifProfessor = Boolean.parseBoolean(professor);
