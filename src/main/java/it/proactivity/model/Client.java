@@ -105,6 +105,15 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
+    public void clientPersonalDetails(String name, String surname, LocalDate dateOfBirthday, Address address) {
+        System.out.println("Client details: " + name + surname + dateOfBirthday + address);
+    }
+
+    public void clientInformation(Long id, String email, String phoneNumber, Boolean professor, Boolean student) {
+        System.out.println("Information: " + id + email + phoneNumber + professor + student);
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
