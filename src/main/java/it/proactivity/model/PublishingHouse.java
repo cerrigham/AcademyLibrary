@@ -104,4 +104,13 @@ public class PublishingHouse {
                 Ha un fatturato di %s e un numero di impiegati uguale a %s
                 """.formatted(this.name, this.nationality, this.city, this.revenue, this.numberOfEmployees);
     }
+
+    public static PublishingHouse createPublishingHouse(String id, String name, String nationality, String city,
+                                                        String revenue, String foundator, String numberOfEmployees) {
+        Long parseId = Long.parseLong(id);
+        Float parseRevenue = Float.parseFloat(revenue);
+        Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
+
+        return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+    }
 }

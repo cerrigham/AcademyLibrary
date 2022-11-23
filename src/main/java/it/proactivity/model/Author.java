@@ -1,6 +1,9 @@
 package it.proactivity.model;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Author {
@@ -97,5 +100,19 @@ public class Author {
                 ", dateOfDeath=" + dateOfDeath +
                 ", nationality='" + nationality + '\'' +
                 '}';
+    }
+
+    public static Author createAuthor(String id, String name, String surname, String dateOfBirth, String dateOfDeath,
+                                      String nationality) {
+
+        Long parseId = Long.parseLong(id);
+        Locale locale = new Locale("it","IT");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirth,formatter);
+        LocalDate parseDateOfDeath = LocalDate.parse(dateOfDeath,formatter);
+
+        return new Author(parseId,name,surname,parseDateOfBirth,parseDateOfDeath,nationality);
     }
 }
