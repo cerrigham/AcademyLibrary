@@ -1,6 +1,8 @@
 package it.proactivity.model;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class LibraryDetail {
@@ -50,6 +52,25 @@ public class LibraryDetail {
 
     public void setOpeningDaysAndHours(Map<String, String> openingDaysAndHours) {
         this.openingDaysAndHours = openingDaysAndHours;
+    }
+
+    public static Map<DayOfWeek, List<LocalTime>> openingHours() {
+
+        List<LocalTime> myList = new LinkedList<>();
+        myList.add(LocalTime.parse("9.00-12.00;14.00-19.00"));
+        myList.add(LocalTime.parse("9.00-12.00;14.00-19.00"));
+        myList.add(LocalTime.parse("9.00-12.00;14.00-19.00"));
+        myList.add(LocalTime.parse("9.00-12.00;14.00-19.00"));
+        myList.add(LocalTime.parse("9.00-12.00;14.00-19.00"));
+
+        Map<DayOfWeek, List<LocalTime>> myMap = new HashMap<>();
+        myMap.put(DayOfWeek.MONDAY, myList);
+        myMap.put(DayOfWeek.TUESDAY, myList);
+        myMap.put(DayOfWeek.WEDNESDAY, myList);
+        myMap.put(DayOfWeek.THURSDAY, myList);
+        myMap.put(DayOfWeek.FRIDAY, myList);
+
+        return myMap;
     }
 
     @Override
