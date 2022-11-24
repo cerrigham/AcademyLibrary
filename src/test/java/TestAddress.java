@@ -1,4 +1,4 @@
-import it.proactivity.model.Address;
+/*import it.proactivity.model.Address;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,4 +16,4 @@ public class TestAddress {
         assertNotNull(address);
         assertEquals("9", address.getHouseNumber());
     }
-}
+}*/

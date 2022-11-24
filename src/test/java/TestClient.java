@@ -1,4 +1,4 @@
-import it.proactivity.model.Address;
+/*import it.proactivity.model.Address;
 import it.proactivity.model.Client;
 import org.junit.jupiter.api.Test;
 
@@ -18,4 +18,4 @@ public class TestClient {
         assertNotNull(client);
         assertEquals("Luigi", client.getName());
     }
-}
+}*/
