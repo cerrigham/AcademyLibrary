@@ -158,14 +158,14 @@ public class Book {
                 || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
                 virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
                 reprint.isEmpty() || genre == null || isbn == null || isbn.isEmpty()) {
-            throw new IllegalArgumentException("Parameters cannot be null");
+            return null;
         }
 
         Boolean parseVirtual;
         if (virtual.equalsIgnoreCase("true") || virtual.equalsIgnoreCase("false")) {
             parseVirtual = Boolean.parseBoolean(virtual);
         } else {
-            throw new IllegalArgumentException("Virtual parameter must be true or false");
+            return null;
         }
 
         try {
