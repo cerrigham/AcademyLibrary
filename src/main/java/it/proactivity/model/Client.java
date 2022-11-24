@@ -1,6 +1,9 @@
 package it.proactivity.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
@@ -133,26 +136,34 @@ public class Client {
     public static Client clientInformation(String id, String name, String surname, String dateOfBirthday,
                                            Address address, String professor, String student, String email,
                                            String phoneNumber) {
-        if(id == null || id.isEmpty() || name == null || name.isEmpty() || surname == null || surname.isEmpty()
+        if (id == null || id.isEmpty() || name == null || name.isEmpty() || surname == null || surname.isEmpty()
                 || dateOfBirthday == null || dateOfBirthday.isEmpty() || address == null
                 || professor == null || professor.isEmpty() || student == null || student.isEmpty()
                 || email == null || email.isEmpty() || phoneNumber == null || phoneNumber.isEmpty()) {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
 
-        Long myId = Long.parseLong(id);
-        Boolean ifProfessor = Boolean.parseBoolean(professor);
-        Boolean ifStudent = Boolean.parseBoolean(student);
-        try {
-            //TODO manage date parsing
-            LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
-            return new Client(myId, name, surname, dateBirth, address, ifProfessor, ifStudent, email,
-                    phoneNumber);
-        } catch (DateTimeParseException e) {
-            //TODO put an error message into log (when we introduce log)
+        if (!(professor.equalsIgnoreCase("true") || professor.equalsIgnoreCase("false") || student.equalsIgnoreCase("true")
+                || student.equalsIgnoreCase("false"))) {
             return null;
         }
-        //TODO manage boolean parsing exception
-    }
 
+        try {
+            Long myId = Long.parseLong(id);
+            Boolean isProfessor = Boolean.parseBoolean(professor);
+            Boolean isStudent = Boolean.parseBoolean(student);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirthday, formatter);
+
+            return new Client(myId, name, surname, parseDateOfBirth, address, isProfessor, isStudent, email,
+                    phoneNumber);
+        } catch (DateTimeParseException e) {
+
+            return null;
+        }
+
+    }
 }
+
+
