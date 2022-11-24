@@ -113,10 +113,13 @@ public class PublishingHouse {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
         //TODO manage parsing long, reveneu, numberOfEmplooyees
-        Long parseId = Long.parseLong(id);
-        Float parseRevenue = Float.parseFloat(revenue);
-        Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
-
-        return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+        try {
+            Long parseId = Long.parseLong(id);
+            Float parseRevenue = Float.parseFloat(revenue);
+            Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
+            return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

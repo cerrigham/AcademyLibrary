@@ -110,14 +110,16 @@ public class Author {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
         // TODO manager parse id and date
-        Long parseId = Long.parseLong(id);
-        Locale locale = new Locale("it","IT");
+        try {
+            Long parseId = Long.parseLong(id);
+            Locale locale = new Locale("it","IT");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirth,formatter);
+            LocalDate parseDateOfDeath = LocalDate.parse(dateOfDeath,formatter);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-        LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirth,formatter);
-        LocalDate parseDateOfDeath = LocalDate.parse(dateOfDeath,formatter);
-
-        return new Author(parseId,name,surname,parseDateOfBirth,parseDateOfDeath,nationality);
+            return new Author(parseId,name,surname,parseDateOfBirth,parseDateOfDeath,nationality);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
