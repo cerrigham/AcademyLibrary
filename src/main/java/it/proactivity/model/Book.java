@@ -146,7 +146,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return title + " " + author + " " + id;
+        return title + " " + author + " " + id + getVirtual();
     }
 
 
@@ -163,13 +163,23 @@ public class Book {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
 
-        //TODO manage id, price, pages, virtual
-        Long parseId = Long.parseLong(id);
-        Float parsePrice = Float.parseFloat(price);
-        Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
-        Boolean parseVirtual = Boolean.parseBoolean(virtual);
+        try{
+            Boolean parseVirtual;
 
-        return new Book(title,author,publishingHouse,parseId,parsePrice,parseNumberOfPage,parseVirtual,yearOfPublication,
-                reprint,genre,isbn);
+            if(virtual.equalsIgnoreCase("true") || virtual.equalsIgnoreCase("false")) {
+                parseVirtual = Boolean.parseBoolean(virtual);
+            }else {
+                throw new IllegalArgumentException("The virtual parameter should be true or false");
+            }
+
+            Long parseId = Long.parseLong(id);
+            Float parsePrice = Float.parseFloat(price);
+            Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
+            return new Book(title,author,publishingHouse,parseId,parsePrice,parseNumberOfPage,parseVirtual,
+                    yearOfPublication, reprint,genre,isbn);
+
+        }catch (NumberFormatException e) {
+            return null;
+        }
     }
 }
