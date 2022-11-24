@@ -19,7 +19,8 @@ public class Book {
     private Genre genre;
     private String isbn;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price,
                 Integer numberOfPages, Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,
@@ -150,35 +151,31 @@ public class Book {
     }
 
 
-
-
-
     public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                                   String numberOfPage, String virtual, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
-        if(title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
-        || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
-        virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
+        if (title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
+                || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
+                virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
                 reprint.isEmpty() || genre == null || isbn == null || isbn.isEmpty()) {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
 
-        try{
-            Boolean parseVirtual;
+        Boolean parseVirtual;
+        if (virtual.equalsIgnoreCase("true") || virtual.equalsIgnoreCase("false")) {
+            parseVirtual = Boolean.parseBoolean(virtual);
+        } else {
+            throw new IllegalArgumentException("Virtual parameter must be true or false");
+        }
 
-            if(virtual.equalsIgnoreCase("true") || virtual.equalsIgnoreCase("false")) {
-                parseVirtual = Boolean.parseBoolean(virtual);
-            }else {
-                throw new IllegalArgumentException("The virtual parameter should be true or false");
-            }
-
+        try {
             Long parseId = Long.parseLong(id);
             Float parsePrice = Float.parseFloat(price);
             Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
-            return new Book(title,author,publishingHouse,parseId,parsePrice,parseNumberOfPage,parseVirtual,
-                    yearOfPublication, reprint,genre,isbn);
+            return new Book(title, author, publishingHouse, parseId, parsePrice, parseNumberOfPage, parseVirtual,
+                    yearOfPublication, reprint, genre, isbn);
 
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return null;
         }
     }
