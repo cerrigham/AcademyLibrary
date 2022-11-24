@@ -145,14 +145,20 @@ public class Client {
         try {
             Long myId = Long.parseLong(id);
             Boolean ifProfessor = Boolean.parseBoolean(professor);
-           // if (ifProfessor)
-               // throw new ParseException("")
+            if(professor.equalsIgnoreCase("true") || professor.equals("false")) {
+                //return Client.clientInformation(getProfessor);
+            }
+
 
             Boolean ifStudent = Boolean.parseBoolean(student);
+            if (student.equals("true") || student.equals("false")) {
+                //return Client.clientInformation(getStudent);
+            }
 
             //TODO manage date parsing
-            LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
+
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYY");
+            LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
             String formattedDate = formatter.format(dateBirth);
             return new Client(myId, name, surname, dateBirth, address, ifProfessor, ifStudent, email,
                     phoneNumber);
@@ -160,8 +166,7 @@ public class Client {
             //TODO put an error message into log (when we introduce log)
             return null;
         }
-        //catch (ParseException e) {
-           // return null;
+
         }
         //TODO manage boolean parsing exception
     }
