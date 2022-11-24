@@ -82,6 +82,11 @@ public class Address {
 
     public static Address createAddress(String houseNumber, String street, String municipality, String province,
                                  String nation) {
+        if(houseNumber == null || houseNumber.isEmpty() || street == null || street.isEmpty() || municipality == null ||
+        municipality.isEmpty() || province == null || province.isEmpty() || nation == null || nation.isEmpty()) {
+            throw new IllegalArgumentException("Parameters cannot be null");
+        }
+
         return new Address(houseNumber, street, municipality, province, nation);
     }
 }

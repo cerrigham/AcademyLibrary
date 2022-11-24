@@ -156,6 +156,14 @@ public class Book {
     public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                                   String numberOfPage, String virtual, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
+        if(title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
+        || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
+        virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
+                reprint.isEmpty() || genre == null || isbn == null || isbn.isEmpty()) {
+            throw new IllegalArgumentException("Parameters cannot be null");
+        }
+
+        //TODO manage id, price, pages, virtual
         Long parseId = Long.parseLong(id);
         Float parsePrice = Float.parseFloat(price);
         Integer parseNumberOfPage = Integer.parseInt(numberOfPage);

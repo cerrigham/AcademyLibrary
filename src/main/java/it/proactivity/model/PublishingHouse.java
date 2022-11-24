@@ -107,6 +107,12 @@ public class PublishingHouse {
 
     public static PublishingHouse createPublishingHouse(String id, String name, String nationality, String city,
                                                         String revenue, String foundator, String numberOfEmployees) {
+        if(id == null || id.isEmpty() || name == null || name.isEmpty() || nationality == null || nationality.isEmpty()
+        || city == null || city.isEmpty() || revenue == null || revenue.isEmpty() || foundator == null ||
+        foundator.isEmpty() || numberOfEmployees == null || numberOfEmployees.isEmpty()) {
+            throw new IllegalArgumentException("Parameters cannot be null");
+        }
+        //TODO manage parsing long, reveneu, numberOfEmplooyees
         Long parseId = Long.parseLong(id);
         Float parseRevenue = Float.parseFloat(revenue);
         Integer parseNumberOfEmployees = Integer.parseInt(numberOfEmployees);
