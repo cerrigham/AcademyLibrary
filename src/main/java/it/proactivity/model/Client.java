@@ -3,6 +3,7 @@ package it.proactivity.model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
@@ -142,33 +143,27 @@ public class Client {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
 
+        if(!(professor.equalsIgnoreCase("true") || professor.equalsIgnoreCase("false") || student.equalsIgnoreCase("true")
+        || student.equalsIgnoreCase("false"))) {
+            return null;
+        }
+
         try {
             Long myId = Long.parseLong(id);
-            Boolean ifProfessor = Boolean.parseBoolean(professor);
-            if(professor.equalsIgnoreCase("true") || professor.equals("false")) {
-                //return Client.clientInformation(getProfessor);
-            }
+            Boolean isProfessor = Boolean.parseBoolean(professor);
+            Boolean isStudent  = Boolean.parseBoolean(student);
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirthday,formatter);
 
-            Boolean ifStudent = Boolean.parseBoolean(student);
-            if (student.equals("true") || student.equals("false")) {
-                //return Client.clientInformation(getStudent);
-            }
-
-            //TODO manage date parsing
-
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYY");
-            LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
-            String formattedDate = formatter.format(dateBirth);
-            return new Client(myId, name, surname, dateBirth, address, ifProfessor, ifStudent, email,
+            return new Client(myId, name, surname, parseDateOfBirth, address, isProfessor, isStudent, email,
                     phoneNumber);
         } catch (DateTimeParseException e) {
-            //TODO put an error message into log (when we introduce log)
+
             return null;
         }
 
         }
-        //TODO manage boolean parsing exception
     }
 
 

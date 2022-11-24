@@ -149,10 +149,6 @@ public class Book {
         return title + " " + author + " " + id;
     }
 
-
-
-
-
     public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                                   String numberOfPage, String virtual, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
