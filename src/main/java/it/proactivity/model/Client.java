@@ -1,5 +1,7 @@
 package it.proactivity.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.*;
@@ -140,19 +142,28 @@ public class Client {
             throw new IllegalArgumentException("Parameters cannot be null");
         }
 
-        Long myId = Long.parseLong(id);
-        Boolean ifProfessor = Boolean.parseBoolean(professor);
-        Boolean ifStudent = Boolean.parseBoolean(student);
         try {
+            Long myId = Long.parseLong(id);
+            Boolean ifProfessor = Boolean.parseBoolean(professor);
+           // if (ifProfessor)
+               // throw new ParseException("")
+
+            Boolean ifStudent = Boolean.parseBoolean(student);
+
             //TODO manage date parsing
             LocalDate dateBirth = LocalDate.parse(dateOfBirthday);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYY");
+            String formattedDate = formatter.format(dateBirth);
             return new Client(myId, name, surname, dateBirth, address, ifProfessor, ifStudent, email,
                     phoneNumber);
         } catch (DateTimeParseException e) {
             //TODO put an error message into log (when we introduce log)
             return null;
         }
+        //catch (ParseException e) {
+           // return null;
+        }
         //TODO manage boolean parsing exception
     }
 
-}
+
