@@ -1,5 +1,6 @@
 import it.proactivity.model.Address;
 import it.proactivity.model.Client;
+import it.proactivity.utility.AddressUtility;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ public class TestClient {
     @Test
     public void clientInformationTest() {
 
-        Address address = Address.createAddress("9", "località campagne", "Monzuno", "Bologna", "Italy");
+        Address address = AddressUtility.createAddress("9", "località campagne", "Monzuno", "Bologna", "Italy");
 
         Client client = Client.clientInformation("1", "Luigi", "Cerrato", "17-12-1983",
                 address, "False", "False", "luigi.cerrato@pippo.it", "012323456");

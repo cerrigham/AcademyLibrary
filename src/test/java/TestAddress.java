@@ -1,4 +1,5 @@
 import it.proactivity.model.Address;
+import it.proactivity.utility.AddressUtility;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +12,7 @@ public class TestAddress {
 
     @Test
     public void createAddressTest() {
-        Address address = Address.createAddress("9", "Località campagne", "Monzuno", "Bologna", "Italy");
+        Address address = AddressUtility.createAddress("9", "Località campagne", "Monzuno", "Bologna", "Italy");
 
         assertNotNull(address);
         assertEquals("9", address.getHouseNumber());
