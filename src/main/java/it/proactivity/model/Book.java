@@ -13,7 +13,6 @@ public class Book {
     private Long id;
     private Float price;
     private Integer numberOfPages;
-    private Boolean Virtual;
     private String yearOfPublication;
     private String reprint;
     private Genre genre;
@@ -23,7 +22,7 @@ public class Book {
     }
 
     public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price,
-                Integer numberOfPages, Boolean isVirtual, String yearOfPublication, String reprint, Genre genre,
+                Integer numberOfPages, String yearOfPublication, String reprint, Genre genre,
                 String isbn) {
         this.title = title;
         this.author = author;
@@ -31,7 +30,6 @@ public class Book {
         this.id = id;
         this.price = price;
         this.numberOfPages = numberOfPages;
-        this.Virtual = isVirtual;
         this.yearOfPublication = yearOfPublication;
         this.reprint = reprint;
         this.genre = genre;
@@ -86,13 +84,6 @@ public class Book {
         this.numberOfPages = numberOfPages;
     }
 
-    public Boolean getVirtual() {
-        return Virtual;
-    }
-
-    public void setVirtual(Boolean virtual) {
-        Virtual = virtual;
-    }
 
     public String getYearOfPublication() {
         return yearOfPublication;
@@ -134,19 +125,19 @@ public class Book {
         return Objects.equals(title, book.title) && Objects.equals(author, book.author) &&
                 Objects.equals(publishingHouse, book.publishingHouse) && Objects.equals(id, book.id) &&
                 Objects.equals(price, book.price) &&
-                Objects.equals(numberOfPages, book.numberOfPages) && Objects.equals(Virtual, book.Virtual) &&
+                Objects.equals(numberOfPages, book.numberOfPages) &&
                 Objects.equals(yearOfPublication, book.yearOfPublication) &&
                 Objects.equals(reprint, book.reprint) && genre == book.genre && Objects.equals(isbn, book.isbn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, publishingHouse, id, price, numberOfPages, Virtual, yearOfPublication,
+        return Objects.hash(title, author, publishingHouse, id, price, numberOfPages,  yearOfPublication,
                 reprint, genre, isbn);
     }
 
     @Override
     public String toString() {
-        return title + " " + author + " " + id + getVirtual();
+        return title + " " + author + " " + id;
     }
 }

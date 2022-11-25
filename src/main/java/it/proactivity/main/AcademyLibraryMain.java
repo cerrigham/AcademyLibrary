@@ -21,7 +21,7 @@ public class AcademyLibraryMain {
                 LocalDate.of(1948, 9,20),null,"American");
         Book book = new Book("Game of Thrones The Winds of Winter", georgeMartin,
                 rscMediaGroup, 1l, 21.25f, 1200,
-                Boolean.FALSE, "2012", "first reprint", Genre.Fantasy,
+                 "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
         System.out.println(book);
 

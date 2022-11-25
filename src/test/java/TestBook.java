@@ -20,14 +20,13 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
-                "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
+                "150",  "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNotNull(ilPiccoloPrincipe);
         assertEquals("Il piccolo principe", ilPiccoloPrincipe.getTitle());
         assertEquals(1l, ilPiccoloPrincipe.getId());
         assertEquals(35.5f, ilPiccoloPrincipe.getPrice());
         assertEquals(150, ilPiccoloPrincipe.getNumberOfPages());
-        assertEquals(true, ilPiccoloPrincipe.getVirtual());
         assertEquals("1943", ilPiccoloPrincipe.getYearOfPublication());
         assertEquals("yes", ilPiccoloPrincipe.getReprint());
         assertEquals("9837647838", ilPiccoloPrincipe.getIsbn());
@@ -42,7 +41,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
-                "150", "true", "1943", "yes", Genre.Fantasy, null);
+                "150",  "1943", "yes", Genre.Fantasy, null);
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -56,7 +55,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
-                "150", "true", "1943", "yes", Genre.Fantasy, "");
+                "150",  "1943", "yes", Genre.Fantasy, "");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -70,7 +69,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "uno", "35.5",
-                "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
+                "150",  "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -84,7 +83,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook(null, antoineDeSaintExupéry, gillimard, "1", "35.5",
-                "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
+                "150",  "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -97,7 +96,7 @@ public class TestBook {
         PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
-                "molto", "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
+                "molto", "150", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -110,21 +109,7 @@ public class TestBook {
         PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
-                "35.5", "centocinquanta", "true", "1943", "yes", Genre.Fantasy, "9837647838");
-
-        assertNull(ilPiccoloPrincipe);
-    }
-
-    @Test
-    public void createBookVirtualWrongTest() {
-        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
-                "29-06-1900", "31-07-1944", "France");
-
-        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
-                "Paris", "226000000", "Gaston Gallimard", "1000");
-
-        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
-                "35.5", "150", "no", "1943", "yes", Genre.Fantasy, "9837647838");
+                "35.5", "centocinquanta",  "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -138,7 +123,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
-                "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
+                "35.5", "150",  "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -149,7 +134,7 @@ public class TestBook {
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", null, gillimard, "1",
-                "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
+                "35.5", "150", "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
@@ -160,7 +145,7 @@ public class TestBook {
                 "29-06-1900", "31-07-1944", "France");
 
         Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, null, "1",
-                "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
+                "35.5", "150",  "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
     }
