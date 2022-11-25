@@ -1,5 +1,7 @@
 package it.proactivity.model;
 
+import it.proactivity.utility.ParsingUtility;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -149,12 +151,12 @@ public class Client {
         }
 
         try {
-            Long myId = Long.parseLong(id);
-            Boolean isProfessor = Boolean.parseBoolean(professor);
-            Boolean isStudent = Boolean.parseBoolean(student);
+            Long myId = ParsingUtility.parseLong(id);
+            Boolean isProfessor = ParsingUtility.parseBoolean(professor);
+            Boolean isStudent = ParsingUtility.parseBoolean(student);
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirthday, formatter);
+            LocalDate formatter = ParsingUtility.parseLocalDateDayMonthYear("dd-MM-yyyy");
+            LocalDate parseDateOfBirth = ParsingUtility.parseLocalDateDayMonthYear(dateOfBirthday);
 
             return new Client(myId, name, surname, parseDateOfBirth, address, isProfessor, isStudent, email,
                     phoneNumber);
