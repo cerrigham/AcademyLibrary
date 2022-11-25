@@ -11,8 +11,8 @@ public class BookUtility {
                                   String numberOfPage, String virtual, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
         if (title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
-                || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
-                virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
+                || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null
+                || virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
                 reprint.isEmpty() || genre == null || isbn == null || isbn.isEmpty()) {
             return null;
         }
@@ -22,15 +22,14 @@ public class BookUtility {
             return null;
         }
 
-        try {
-            Long parseId = Long.parseLong(id);
-            Float parsePrice = Float.parseFloat(price);
-            Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
-            return new Book(title, author, publishingHouse, parseId, parsePrice, parseNumberOfPage, parsedBoolean,
-                    yearOfPublication, reprint, genre, isbn);
-
-        } catch (NumberFormatException e) {
+        Long parsedId = ParsingUtility.parseLong(id);
+        Float parsedPrice = ParsingUtility.parseFloat(price);
+        Integer parsedNumberOfPage = ParsingUtility.parseInteger(numberOfPage);
+        if (parsedId == null || parsedPrice == null || parsedNumberOfPage == null) {
             return null;
         }
+
+        return new Book(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage, parsedBoolean,
+                yearOfPublication, reprint, genre, isbn);
     }
 }
