@@ -22,4 +22,14 @@ public class ParsingUtility {
             return null;
         }
     }
+
+    public static Boolean parseBoolean(String s) {
+        if (s.equalsIgnoreCase("true") || s.equalsIgnoreCase("false")) {
+            return Boolean.parseBoolean(s);
+        } else {
+            return null;
+        }
+    }
+
+
 }

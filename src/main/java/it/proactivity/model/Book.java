@@ -149,33 +149,4 @@ public class Book {
     public String toString() {
         return title + " " + author + " " + id + getVirtual();
     }
-
-    public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
-                                  String numberOfPage, String virtual, String yearOfPublication, String reprint,
-                                  Genre genre, String isbn) {
-        if (title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
-                || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty() || virtual == null ||
-                virtual.isEmpty() || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
-                reprint.isEmpty() || genre == null || isbn == null || isbn.isEmpty()) {
-            return null;
-        }
-
-        Boolean parseVirtual;
-        if (virtual.equalsIgnoreCase("true") || virtual.equalsIgnoreCase("false")) {
-            parseVirtual = Boolean.parseBoolean(virtual);
-        } else {
-            return null;
-        }
-
-        try {
-            Long parseId = Long.parseLong(id);
-            Float parsePrice = Float.parseFloat(price);
-            Integer parseNumberOfPage = Integer.parseInt(numberOfPage);
-            return new Book(title, author, publishingHouse, parseId, parsePrice, parseNumberOfPage, parseVirtual,
-                    yearOfPublication, reprint, genre, isbn);
-
-        } catch (NumberFormatException e) {
-            return null;
-        }
-    }
 }
