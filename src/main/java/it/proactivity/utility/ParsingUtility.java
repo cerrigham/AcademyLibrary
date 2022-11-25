@@ -51,13 +51,12 @@ public class ParsingUtility {
     }
 
     public static LocalTime parseTime(String s) {
-        try{
+        try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
-            return LocalTime.parse(s,formatter);
+            return LocalTime.parse(s, formatter);
 
-        }catch (DateTimeParseException e) {
+        } catch (DateTimeParseException e) {
             return null;
         }
     }
-
 }
