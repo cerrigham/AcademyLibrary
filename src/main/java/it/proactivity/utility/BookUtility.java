@@ -21,7 +21,6 @@ public class BookUtility {
         if (parsedBoolean == null) {
             return null;
         }
-
         Long parsedId = ParsingUtility.parseLong(id);
         Float parsedPrice = ParsingUtility.parseFloat(price);
         Integer parsedNumberOfPage = ParsingUtility.parseInteger(numberOfPage);

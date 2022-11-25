@@ -3,6 +3,8 @@ import it.proactivity.model.Book;
 import it.proactivity.model.Genre;
 import it.proactivity.model.PublishingHouse;
 import it.proactivity.utility.AuthorUtility;
+import it.proactivity.utility.BookUtility;
+import it.proactivity.utility.PublishingHouseUtility;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,10 +16,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
                 "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNotNull(ilPiccoloPrincipe);
@@ -36,10 +38,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
                 "150", "true", "1943", "yes", Genre.Fantasy, null);
 
         assertNull(ilPiccoloPrincipe);
@@ -50,10 +52,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1", "35.5",
                 "150", "true", "1943", "yes", Genre.Fantasy, "");
 
         assertNull(ilPiccoloPrincipe);
@@ -64,10 +66,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "uno", "35.5",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "uno", "35.5",
                 "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -78,10 +80,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook(null, antoineDeSaintExupéry, gillimard, "1", "35.5",
+        Book ilPiccoloPrincipe = BookUtility.createBook(null, antoineDeSaintExupéry, gillimard, "1", "35.5",
                 "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -92,9 +94,9 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
                 "molto", "150", "true", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -105,9 +107,9 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
                 "35.5", "centocinquanta", "true", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -118,10 +120,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
                 "35.5", "150", "no", "1943", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -132,10 +134,10 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, gillimard, "1",
                 "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -143,10 +145,10 @@ public class TestBook {
 
     @Test
     public void createBookAuthorNullTest() {
-        PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
+        PublishingHouse gillimard = PublishingHouseUtility.createPublishingHouse("1", "Gillimard", "France",
                 "Paris", "226000000", "Gaston Gallimard", "1000");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", null, gillimard, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", null, gillimard, "1",
                 "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
@@ -157,7 +159,7 @@ public class TestBook {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
-        Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, null, "1",
+        Book ilPiccoloPrincipe = BookUtility.createBook("Il piccolo principe", antoineDeSaintExupéry, null, "1",
                 "35.5", "150", "true", "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
