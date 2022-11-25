@@ -2,6 +2,7 @@ import it.proactivity.model.Author;
 import it.proactivity.model.Book;
 import it.proactivity.model.Genre;
 import it.proactivity.model.PublishingHouse;
+import it.proactivity.utility.AuthorUtility;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +11,7 @@ public class TestBook {
 
     @Test
     public void createBookTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -32,7 +33,7 @@ public class TestBook {
 
     @Test
     public void createBookTestIsbnNull() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -46,7 +47,7 @@ public class TestBook {
 
     @Test
     public void createBookTestIsbnEmpty() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -60,7 +61,7 @@ public class TestBook {
 
     @Test
     public void createBookIdWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -74,7 +75,7 @@ public class TestBook {
 
     @Test
     public void createBookTitleWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -88,7 +89,7 @@ public class TestBook {
 
     @Test
     public void createBookPriceWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -101,7 +102,7 @@ public class TestBook {
 
     @Test
     public void createBookNumberOfPageWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -114,7 +115,7 @@ public class TestBook {
 
     @Test
     public void createBookVirtualWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -128,7 +129,7 @@ public class TestBook {
 
     @Test
     public void createBookYearOfPublicationWrongTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         PublishingHouse gillimard = PublishingHouse.createPublishingHouse("1", "Gillimard", "France",
@@ -153,7 +154,7 @@ public class TestBook {
 
     @Test
     public void createBookPublishingHouseNullTest() {
-        Author antoineDeSaintExupéry = Author.createAuthor("1", "Antoine", "DeSaintExupery",
+        Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery",
                 "29-06-1900", "31-07-1944", "France");
 
         Book ilPiccoloPrincipe = Book.createBook("Il piccolo principe", antoineDeSaintExupéry, null, "1",

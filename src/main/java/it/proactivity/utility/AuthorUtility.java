@@ -3,26 +3,27 @@ package it.proactivity.utility;
 import it.proactivity.model.Author;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 public class AuthorUtility {
     public static Author createAuthor(String id, String name, String surname, String dateOfBirth, String dateOfDeath,
                                       String nationality) {
-        if(id == null || id.isEmpty() || name == null || name.isEmpty() || surname == null || surname.isEmpty()
+        if (id == null || id.isEmpty() || name == null || name.isEmpty() || surname == null || surname.isEmpty()
                 || dateOfBirth == null || dateOfBirth.isEmpty() || dateOfDeath == null || dateOfDeath.isEmpty() ||
                 nationality == null || nationality.isEmpty()) {
-            throw new IllegalArgumentException("Parameters cannot be null");
+            return null;
         }
-        // TODO manager parse id and date
-        Long parseId = Long.parseLong(id);
-        Locale locale = new Locale("it","IT");
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        Long parsedId = ParsingUtility.parseLong(id);
+        if (parsedId == null) {
+            return null;
+        }
 
-        LocalDate parseDateOfBirth = LocalDate.parse(dateOfBirth,formatter);
-        LocalDate parseDateOfDeath = LocalDate.parse(dateOfDeath,formatter);
+        LocalDate parseDateOfBirth = ParsingUtility.parseLocalDateDayMonthYear(dateOfBirth);
+        LocalDate parseDateOfDeath = ParsingUtility.parseLocalDateDayMonthYear(dateOfBirth);
+        if (parseDateOfBirth == null || parseDateOfDeath == null) {
+            return null;
+        }
 
-        return new Author(parseId,name,surname,parseDateOfBirth,parseDateOfDeath,nationality);
+        return new Author(parsedId, name, surname, parseDateOfBirth, parseDateOfDeath, nationality);
     }
 }
