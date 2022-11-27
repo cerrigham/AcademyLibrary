@@ -19,7 +19,8 @@ public class Ebook extends Book {
     }
 
     public Ebook(String title, Author author, PublishingHouse publishingHouse, Long id, Float price,
-                 Integer numberOfPages,  String yearOfPublication, String reprint, Genre genre, String isbn, Format format, Float dimensionInKilobyte, LocalDateTime expiringDate) {
+                 Integer numberOfPages,  String yearOfPublication, String reprint, Genre genre, String isbn,
+                 Format format, Float dimensionInKilobyte, LocalDateTime expiringDate) {
         super(title, author, publishingHouse, id, price, numberOfPages, yearOfPublication, reprint, genre, isbn);
         this.format = format;
         this.dimensionInKilobyte = dimensionInKilobyte;

@@ -16,7 +16,7 @@ public class ClientUtility {
                 || dateOfBirthday == null || dateOfBirthday.isEmpty() || address == null
                 || professor == null || professor.isEmpty() || student == null || student.isEmpty()
                 || email == null || email.isEmpty() || phoneNumber == null || phoneNumber.isEmpty()) {
-            throw new IllegalArgumentException("Parameters cannot be null");
+            return null;
         }
 
         if (!(professor.equalsIgnoreCase("true") || professor.equalsIgnoreCase("false") || student.equalsIgnoreCase("true")

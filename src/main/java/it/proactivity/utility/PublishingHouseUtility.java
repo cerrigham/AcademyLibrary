@@ -8,7 +8,7 @@ public class PublishingHouseUtility {
         if(id == null || id.isEmpty() || name == null || name.isEmpty() || nationality == null || nationality.isEmpty()
                 || city == null || city.isEmpty() || revenue == null || revenue.isEmpty() || foundator == null ||
                 foundator.isEmpty() || numberOfEmployees == null || numberOfEmployees.isEmpty()) {
-            throw new IllegalArgumentException("Parameters cannot be null");
+            return null;
         }
 
         Long parseId = ParsingUtility.parseLong(id);
