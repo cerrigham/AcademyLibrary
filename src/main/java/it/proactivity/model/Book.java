@@ -5,12 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
-public class Book {
+public class Book extends LibraryItem {
 
     private String title;
     private Author author;
     private PublishingHouse publishingHouse;
-    private Long id;
     private Float price;
     private Integer numberOfPages;
     private String yearOfPublication;
@@ -27,7 +26,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.publishingHouse = publishingHouse;
-        this.id = id;
+        super.setId(id);
         this.price = price;
         this.numberOfPages = numberOfPages;
         this.yearOfPublication = yearOfPublication;
@@ -58,14 +57,6 @@ public class Book {
 
     public void setPublishingHouse(PublishingHouse publishingHouse) {
         this.publishingHouse = publishingHouse;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Float getPrice() {
@@ -123,7 +114,7 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(title, book.title) && Objects.equals(author, book.author) &&
-                Objects.equals(publishingHouse, book.publishingHouse) && Objects.equals(id, book.id) &&
+                Objects.equals(publishingHouse, book.publishingHouse) &&
                 Objects.equals(price, book.price) &&
                 Objects.equals(numberOfPages, book.numberOfPages) &&
                 Objects.equals(yearOfPublication, book.yearOfPublication) &&
@@ -132,12 +123,12 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, publishingHouse, id, price, numberOfPages,  yearOfPublication,
+        return Objects.hash(title, author, publishingHouse, price, numberOfPages,  yearOfPublication,
                 reprint, genre, isbn);
     }
 
     @Override
     public String toString() {
-        return title + " " + author + " " + id;
+        return title + " " + author;
     }
 }
