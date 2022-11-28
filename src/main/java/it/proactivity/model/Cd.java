@@ -9,7 +9,7 @@ public class Cd {
     private MusicGenre musicGenre;
     private Musician musician;
     private String title;
-    private LocalDate dateOfCreation;
+    private LocalDate dateOfPublication;
 
     public Cd() {}
 
@@ -18,7 +18,7 @@ public class Cd {
         this.musicGenre = musicGenre;
         this.musician = musician;
         this.title = title;
-        this.dateOfCreation = dateOfCreation;
+        this.dateOfPublication = dateOfCreation;
     }
 
     public Long getId() {
@@ -53,12 +53,12 @@ public class Cd {
         this.title = title;
     }
 
-    public LocalDate getDateOfCreation() {
-        return dateOfCreation;
+    public LocalDate getDateOfPublication() {
+        return dateOfPublication;
     }
 
-    public void setDateOfCreation(LocalDate dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
+    public void setDateOfPublication(LocalDate dateOfPublication) {
+        this.dateOfPublication = dateOfPublication;
     }
 
     @Override
@@ -67,13 +67,13 @@ public class Cd {
         if (o == null || getClass() != o.getClass()) return false;
         Cd cd = (Cd) o;
         return musicGenre == cd.musicGenre && Objects.equals(musician, cd.musician) &&
-                Objects.equals(title, cd.title) && Objects.equals(dateOfCreation,cd.dateOfCreation) &&
+                Objects.equals(title, cd.title) && Objects.equals(dateOfPublication,cd.dateOfPublication) &&
                 Objects.equals(id, cd.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(musicGenre, musician, title,dateOfCreation,id);
+        return Objects.hash(musicGenre, musician, title, dateOfPublication,id);
     }
 
     @Override

@@ -8,7 +8,6 @@ public class Musician {
     private String name;
     private String nationality;
     private String age;
-    private Boolean haveBand;
 
     public Musician() {
     }
@@ -18,7 +17,6 @@ public class Musician {
         this.name = name;
         this.nationality = nationality;
         this.age = age;
-        this.haveBand = haveBand;
     }
 
     public Long getId() {
@@ -53,27 +51,18 @@ public class Musician {
         this.age = age;
     }
 
-    public Boolean getHaveBand() {
-        return haveBand;
-    }
-
-    public void setHaveBand(Boolean haveBand) {
-        this.haveBand = haveBand;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Musician musician = (Musician) o;
         return Objects.equals(name, musician.name) && Objects.equals(nationality, musician.nationality) &&
-                Objects.equals(age, musician.age) && Objects.equals(haveBand, musician.haveBand) &&
-                Objects.equals(id, musician.id);
+                Objects.equals(age, musician.age) && Objects.equals(id, musician.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, nationality, age, haveBand, id);
+        return Objects.hash(name, nationality, age, id);
     }
 
     @Override
