@@ -20,4 +20,8 @@ public class LibraryItem {
     public void setCopies(Integer copies) {
         this.copies = copies;
     }
+
+    public Boolean isAvailable() {
+        return copies > 0;
+    }
 }
