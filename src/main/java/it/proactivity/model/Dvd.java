@@ -3,6 +3,8 @@ package it.proactivity.model;
 import java.util.Objects;
 
 public class Dvd {
+
+    private Long id;
     private String title;
     private Float duration;
     private FilmDirector filmDirector;
@@ -20,6 +22,14 @@ public class Dvd {
         this.dvdGenre = dvdGenre;
         this.filmStudio = filmStudio;
         this.familyFriendly = familyFriendly;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -75,14 +85,14 @@ public class Dvd {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dvd dvd = (Dvd) o;
-        return Objects.equals(title, dvd.title) && Objects.equals(duration, dvd.duration) &&
-                Objects.equals(filmDirector, dvd.filmDirector) && dvdGenre == dvd.dvdGenre &&
-                Objects.equals(filmStudio, dvd.filmStudio) && Objects.equals(familyFriendly, dvd.familyFriendly);
+        return Objects.equals(id, dvd.id) && Objects.equals(title, dvd.title) && Objects.equals(duration, dvd.duration)
+                && Objects.equals(filmDirector, dvd.filmDirector) && dvdGenre == dvd.dvdGenre
+                && Objects.equals(filmStudio, dvd.filmStudio) && Objects.equals(familyFriendly, dvd.familyFriendly);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, duration, filmDirector, dvdGenre, filmStudio, familyFriendly);
+        return Objects.hash(id, title, duration, filmDirector, dvdGenre, filmStudio, familyFriendly);
     }
 
     @Override
