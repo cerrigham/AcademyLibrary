@@ -1,6 +1,6 @@
 package it.proactivity.utility;
 
-import it.proactivity.librarysingleton.Catalog;
+import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.*;
 
 import java.time.LocalDateTime;
@@ -31,8 +31,8 @@ public class eBookUtility {
         Ebook ebook = new Ebook(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
                 yearOfPublication, reprint, genre, isbn, format, parsedDimensionInKilobyte, parsedExpiringDate);
 
-        Catalog catalog = Catalog.getIstance();
-        catalog.writeFile(ebook);
+        Catalog catalog = Catalog.getInstance();
+        catalog.writeItemDetailsIntoLibraryCatalogFile(ebook.toString());
         return ebook;
 
     }

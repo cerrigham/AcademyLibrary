@@ -1,6 +1,6 @@
 package it.proactivity.utility;
 
-import it.proactivity.librarysingleton.Catalog;
+import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.Author;
 import it.proactivity.model.Book;
 import it.proactivity.model.Genre;
@@ -29,8 +29,8 @@ public class BookUtility {
         Book book = new Book(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
                 yearOfPublication, reprint, genre, isbn);
 
-        Catalog catalog = Catalog.getIstance();
-        catalog.writeFile(book);
+        Catalog catalog = Catalog.getInstance();
+        catalog.writeItemDetailsIntoLibraryCatalogFile(book.toString());
 
         return book;
     }

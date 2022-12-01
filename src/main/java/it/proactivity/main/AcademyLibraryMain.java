@@ -1,6 +1,7 @@
 package it.proactivity.main;
 
 import it.proactivity.model.*;
+import it.proactivity.utility.BookUtility;
 
 import java.util.Date;
 
@@ -14,15 +15,26 @@ public class AcademyLibraryMain {
 
     public static void main(String[] args) {
 
-        PublishingHouse rscMediaGroup = new PublishingHouse(001l,"RSC MediaGroup","Italy",
-                "Milan",846000000f,"Angelo Rizzoli",4000);
+        PublishingHouse rscMediaGroup = new PublishingHouse(001l, "RSC MediaGroup", "Italy",
+                "Milan", 846000000f, "Angelo Rizzoli", 4000);
 
-        Author georgeMartin = new Author(1l, "George R.R.","Martin",
-                LocalDate.of(1948, 9,20),null,"American");
-        Book book = new Book("Game of Thrones The Winds of Winter", georgeMartin,
-                rscMediaGroup, 1l, 21.25f, 1200,
-                 "2012", "first reprint", Genre.Fantasy,
+        Author georgeMartin = new Author(1l, "George R.R.", "Martin",
+                LocalDate.of(1948, 9, 20), null, "American");
+
+        Author andreaDeCarlo = new Author(2l, "Andrea", "de Carlo",
+                LocalDate.of(1958, 9, 20), null, "Italian");
+
+        Book gamesOfThromeTheWindsOfWinter = BookUtility.createBook("Game of Thrones The Winds of Winter", georgeMartin,
+                rscMediaGroup, "1", "21.25", "1200",
+                "2012", "first reprint", Genre.Fantasy,
                 "99999999999999");
+
+        Book dueDiDue = BookUtility.createBook("Due di Due", andreaDeCarlo,
+                rscMediaGroup, "1", "21.25", "1200",
+                "1987", "first reprint", Genre.Novel,
+                "999999111999999");
+
+        /*
         System.out.println(book);
 
         Map<String, String> openingDays = new HashMap<>();
@@ -41,5 +53,7 @@ public class AcademyLibraryMain {
                 LocalDate.of(2019, Month.AUGUST, 22), new Address("45", "corso repubblica", "Vigevano", "PV", "Italy"),
                 Boolean.FALSE, Boolean.TRUE, "marco.rossi22@gmail.com", "3338657482");
         System.out.println(marcoRossi);
+        */
+
     }
 }

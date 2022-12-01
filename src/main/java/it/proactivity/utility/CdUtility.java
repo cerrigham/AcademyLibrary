@@ -1,6 +1,6 @@
 package it.proactivity.utility;
 
-import it.proactivity.librarysingleton.Catalog;
+import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.Cd;
 import it.proactivity.model.MusicGenre;
 import it.proactivity.model.Musician;
@@ -21,8 +21,9 @@ public class CdUtility {
         }
 
         Cd cd = new Cd(parsedId, musicGenre, musician, title, parsedDateOfPublication);
-        Catalog catalog = Catalog.getIstance();
-        catalog.writeFile(cd);
+        Catalog catalog = Catalog.getInstance();
+        catalog.writeItemDetailsIntoLibraryCatalogFile(cd.toString());
+
         return cd;
     }
 }
