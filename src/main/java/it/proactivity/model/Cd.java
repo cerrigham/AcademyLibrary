@@ -70,7 +70,7 @@ public class Cd extends LibraryItem {
     @Override
     public String toString() {
         return """
-                The name of Cd is : %s, the musician is %s and the genre is %s
-                """.formatted(this, title, this.musician, this.musicGenre);
+                [Cd]  [%s canta %s] [%s]
+                """.formatted(this.musician.getName(), this.title, this.musicGenre);
     }
 }

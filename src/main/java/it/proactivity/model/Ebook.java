@@ -68,8 +68,9 @@ public class Ebook extends Book {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getTitle() + " ").append(getFormat() + " ").append(getDimensionInKilobyte() + " ").
-                append(getExpiringDate());
+        stringBuilder.append("[ " + getTitle() + "]" + " ").append("[ " +getFormat() + "]" + " ").
+                append("[" + getDimensionInKilobyte() + "]" + " ").
+                append("[" + getExpiringDate() + "]");
         return stringBuilder.toString();
     }
 }

@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.librarysingleton.Catalog;
 import it.proactivity.model.Author;
 import it.proactivity.model.Book;
 import it.proactivity.model.Genre;
@@ -10,6 +11,7 @@ public class BookUtility {
     public static Book createBook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                                   String numberOfPage, String yearOfPublication, String reprint,
                                   Genre genre, String isbn) {
+
         if (title == null || title.isEmpty() || author == null || publishingHouse == null || id == null || id.isEmpty()
                 || price == null || price.isEmpty() || numberOfPage == null || numberOfPage.isEmpty()
                  || yearOfPublication == null || yearOfPublication.isEmpty() || reprint == null ||
@@ -24,7 +26,12 @@ public class BookUtility {
             return null;
         }
 
-        return new Book(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
+        Book book = new Book(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
                 yearOfPublication, reprint, genre, isbn);
+
+        Catalog catalog = Catalog.getIstance();
+        catalog.writeFile(book);
+
+        return book;
     }
 }

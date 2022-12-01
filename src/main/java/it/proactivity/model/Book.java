@@ -129,6 +129,8 @@ public class Book extends LibraryItem {
 
     @Override
     public String toString() {
-        return title + " " + author;
+        return """
+                [Book] [%s] [%s]
+                """.formatted(this.title, this.genre);
     }
 }

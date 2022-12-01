@@ -1,6 +1,7 @@
 package it.proactivity.utility;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -56,6 +57,14 @@ public class ParsingUtility {
             return LocalTime.parse(s, formatter);
 
         } catch (DateTimeParseException e) {
+            return null;
+        }
+    }
+    public static LocalDateTime parseDateTime(String s) {
+        try {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            return LocalDateTime.parse(s,format);
+        }catch (DateTimeParseException e) {
             return null;
         }
     }

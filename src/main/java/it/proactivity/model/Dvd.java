@@ -90,6 +90,8 @@ public class Dvd extends LibraryItem {
 
     @Override
     public String toString() {
-        return title + " " + duration + " " + filmDirector + " " + familyFriendly;
+        return """
+                [Dvd] [%s] [%s]
+                """.formatted(this.title, this.dvdGenre);
     }
 }

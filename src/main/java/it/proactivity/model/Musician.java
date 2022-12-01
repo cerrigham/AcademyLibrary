@@ -12,7 +12,7 @@ public class Musician {
     public Musician() {
     }
 
-    public Musician(Long id, String name, String nationality, String age, Boolean haveBand) {
+    public Musician(Long id, String name, String nationality, String age) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
@@ -68,7 +68,7 @@ public class Musician {
     @Override
     public String toString() {
         return """
-                The name of the musician is %s  is from %s and is old %s
+            [Musician]    The name of the musician is [%s]  is from [%s] and is old [%s]
                 """.formatted(this.name, this.nationality, this.age);
     }
 }
