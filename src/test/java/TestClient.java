@@ -19,5 +19,6 @@ public class TestClient {
 
         assertNotNull(client);
         assertEquals("Luigi", client.getName());
+
     }
 }

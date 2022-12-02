@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestBook {
 
-    @Test
+    /*@Test
     public void createBookTest() {
         Author antoineDeSaintExupéry = AuthorUtility.createAuthor("1", "Antoine", "DeSaintExupery", "29-06-1900",
                 "31-07-1944", "France");
@@ -148,5 +148,5 @@ public class TestBook {
                 "35.5", "150",  "", "yes", Genre.Fantasy, "9837647838");
 
         assertNull(ilPiccoloPrincipe);
-    }
+    }*/
 }

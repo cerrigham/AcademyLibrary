@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.builder.ClientBuilder;
 import it.proactivity.model.Address;
 import it.proactivity.model.Client;
 
@@ -34,8 +35,15 @@ public class ClientUtility {
             return null;
         }
 
-        return new Client(myId, name, surname, parsedDateOfBirth, address, isProfessor, isStudent, email,
-                phoneNumber);
-        
+        return ClientBuilder.newClient (myId)
+                .name(name)
+                .surname(surname)
+                .dateOfBirthday(parsedDateOfBirth)
+                .address(address)
+                .professor(isProfessor)
+                .student(isStudent)
+                .email(email)
+                .phoneNumber(phoneNumber)
+                .build();
     }
 }

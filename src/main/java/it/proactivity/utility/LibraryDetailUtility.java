@@ -48,7 +48,7 @@ public class LibraryDetailUtility {
             }
             return mapOpeningDaysAndHourstoLocalDateTime;
         } catch (Exception e) {
-            //TODO manage log message for this error (when we introduce log)
+
             return null;
         }
 

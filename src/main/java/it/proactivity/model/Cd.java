@@ -10,7 +10,7 @@ public class Cd extends LibraryItem {
     private String title;
     private LocalDate dateOfPublication;
 
-    public Cd() {
+    public Cd(MusicGenre musicGenre, Musician musician, String title, LocalDate dateOfPublication) {
     }
 
     public Cd(Long id, MusicGenre musicGenre, Musician musician, String title, LocalDate dateOfCreation) {

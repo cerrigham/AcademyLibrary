@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.builder.CdBuilder;
 import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.Cd;
 import it.proactivity.model.MusicGenre;
@@ -24,6 +25,10 @@ public class CdUtility {
         Catalog catalog = Catalog.getInstance();
         catalog.writeItemDetailsIntoLibraryCatalogFile(cd.toString());
 
-        return cd;
+        return CdBuilder.newCd(title)
+                .musicGenre(musicGenre)
+                .musician(musician)
+                .dateOfPublication(parsedDateOfPublication)
+                .build();
     }
 }

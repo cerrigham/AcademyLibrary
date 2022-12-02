@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.builder.AuthorBuilder;
 import it.proactivity.model.Author;
 
 import java.time.LocalDate;
@@ -24,6 +25,14 @@ public class AuthorUtility {
             return null;
         }
 
-        return new Author(parsedId, name, surname, parseDateOfBirth, parseDateOfDeath, nationality);
+        return AuthorBuilder.newAuthor(parsedId)
+                .name(name)
+                .surname(surname)
+                .dateOfBirth(parseDateOfBirth)
+                .dateOfDeath(parseDateOfDeath)
+                .nationality(nationality)
+                .build();
     }
+
+
 }
