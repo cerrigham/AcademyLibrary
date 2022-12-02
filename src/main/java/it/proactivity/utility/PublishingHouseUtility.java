@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.designpatter.builder.PublishingHouseBuilder;
 import it.proactivity.model.PublishingHouse;
 
 public class PublishingHouseUtility {
@@ -18,6 +19,13 @@ public class PublishingHouseUtility {
             return null;
         }
 
-        return new PublishingHouse(parseId,name,nationality,city,parseRevenue,foundator,parseNumberOfEmployees);
+        return PublishingHouseBuilder.newBuilder(parseId)
+                .name(name)
+                .nationality(nationality)
+                .city(city)
+                .revenue(parseRevenue)
+                .foundator(foundator)
+                .numberOfEmployees(parseNumberOfEmployees).build();
+
     }
 }

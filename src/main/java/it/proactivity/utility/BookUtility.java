@@ -1,5 +1,6 @@
 package it.proactivity.utility;
 
+import it.proactivity.designpatter.builder.BookBuilder;
 import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.Author;
 import it.proactivity.model.Book;
@@ -26,8 +27,16 @@ public class BookUtility {
             return null;
         }
 
-        Book book = new Book(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
-                yearOfPublication, reprint, genre, isbn);
+        Book book = BookBuilder.newBuilder(parsedId)
+                .title(title)
+                .genre(genre)
+                .author(author)
+                .isbn(isbn)
+                .numberOfPages(parsedNumberOfPage)
+                .reprint(reprint).price(parsedPrice)
+                .yearOfPublication(yearOfPublication)
+                .publishingHouse(publishingHouse)
+                .price(parsedPrice).build();
 
         Catalog catalog = Catalog.getInstance();
         catalog.writeItemDetailsIntoLibraryCatalogFile(book.toString());

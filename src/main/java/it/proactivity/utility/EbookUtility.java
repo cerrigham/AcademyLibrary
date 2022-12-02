@@ -1,12 +1,13 @@
 package it.proactivity.utility;
 
+import it.proactivity.designpatter.builder.EbookBuilder;
 import it.proactivity.designpatter.singleton.Catalog;
 import it.proactivity.model.*;
 
 import java.time.LocalDateTime;
 
-public class eBookUtility {
-    public Ebook createEbook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
+public class EbookUtility {
+    public static Ebook createEbook(String title, Author author, PublishingHouse publishingHouse, String id, String price,
                              String numberOfPages, String yearOfPublication, String reprint, Genre genre, String isbn,
                              Format format, String dimensionInKilobyte, String expiringDate) {
 
@@ -28,8 +29,18 @@ public class eBookUtility {
         || parsedExpiringDate == null) {
             return null;
         }
-        Ebook ebook = new Ebook(title, author, publishingHouse, parsedId, parsedPrice, parsedNumberOfPage,
-                yearOfPublication, reprint, genre, isbn, format, parsedDimensionInKilobyte, parsedExpiringDate);
+        Ebook ebook = EbookBuilder.newBuilder(parsedId)
+                .title(title)
+                .author(author)
+                .numberOfPages(parsedNumberOfPage)
+                .price(parsedPrice).yearOfPublication(yearOfPublication)
+                .dimensionInKilobyte(parsedDimensionInKilobyte)
+                .expiringDate(parsedExpiringDate)
+                .format(format).genre(genre)
+                .reprint(reprint)
+                .publishingHouse(publishingHouse)
+                .yearOfPublication(yearOfPublication)
+                .isbn(isbn).build();
 
         Catalog catalog = Catalog.getInstance();
         catalog.writeItemDetailsIntoLibraryCatalogFile(ebook.toString());

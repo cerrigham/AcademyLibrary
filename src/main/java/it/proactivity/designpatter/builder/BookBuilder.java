@@ -22,7 +22,7 @@ public class BookBuilder {
     }
 
     public static BookBuilder newBuilder(Long id) {
-        return newBuilder(id);
+        return new BookBuilder(id);
     }
 
     public BookBuilder title(String title) {
