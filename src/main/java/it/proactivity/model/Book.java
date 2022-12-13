@@ -2,9 +2,9 @@ package it.proactivity.model;
 
 import java.util.Objects;
 
-public class Book extends LibraryItem {
+public class Book extends LibraryItem implements Comparable {
 
-    private String title;
+
     private Author author;
     private PublishingHouse publishingHouse;
     private Float price;
@@ -21,7 +21,7 @@ public class Book extends LibraryItem {
                 Integer numberOfPages, String yearOfPublication, String reprint, Genre genre,
                 String isbn) {
         super.setId(id);
-        this.title = title;
+        super.setTitle(title);
         this.author = author;
         this.publishingHouse = publishingHouse;
         this.price = price;
@@ -30,14 +30,6 @@ public class Book extends LibraryItem {
         this.reprint = reprint;
         this.genre = genre;
         this.isbn = isbn;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Author getAuthor() {
@@ -110,9 +102,8 @@ public class Book extends LibraryItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(title, book.title) && Objects.equals(author, book.author) &&
-                Objects.equals(publishingHouse, book.publishingHouse) &&
-                Objects.equals(price, book.price) &&
+        return Objects.equals(author, book.author) && Objects.equals(publishingHouse,
+                book.publishingHouse) && Objects.equals(price, book.price) &&
                 Objects.equals(numberOfPages, book.numberOfPages) &&
                 Objects.equals(yearOfPublication, book.yearOfPublication) &&
                 Objects.equals(reprint, book.reprint) && genre == book.genre && Objects.equals(isbn, book.isbn);
@@ -120,14 +111,19 @@ public class Book extends LibraryItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, publishingHouse, price, numberOfPages,  yearOfPublication,
-                reprint, genre, isbn);
+        return Objects.hash(author, publishingHouse, price, numberOfPages, yearOfPublication, reprint, genre, isbn);
     }
 
     @Override
     public String toString() {
         return """
                 [Book] [%s] [%s]
-                """.formatted(this.title, this.genre);
+                """.formatted(super.getTitle(), this.genre);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Book book = (Book) o;
+        return this.getTitle().compareTo(book.getTitle());
     }
 }

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Dvd extends LibraryItem {
 
-    private String title;
+
     private Float duration;
     private FilmDirector filmDirector;
     private DvdGenre dvdGenre;
@@ -16,23 +16,13 @@ public class Dvd extends LibraryItem {
     public Dvd(Long id, String title, Float duration, FilmDirector filmDirector, DvdGenre dvdGenre, FilmStudio filmStudio,
                Boolean familyFriendly) {
         super.setId(id);
-        this.title = title;
+        super.setTitle(title);
         this.duration = duration;
         this.filmDirector = filmDirector;
         this.dvdGenre = dvdGenre;
         this.filmStudio = filmStudio;
         this.familyFriendly = familyFriendly;
     }
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public Float getDuration() {
         return duration;
     }
@@ -78,20 +68,20 @@ public class Dvd extends LibraryItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dvd dvd = (Dvd) o;
-        return Objects.equals(title, dvd.title) && Objects.equals(duration, dvd.duration)
-                && Objects.equals(filmDirector, dvd.filmDirector) && dvdGenre == dvd.dvdGenre
-                && Objects.equals(filmStudio, dvd.filmStudio) && Objects.equals(familyFriendly, dvd.familyFriendly);
+        return Objects.equals(duration, dvd.duration) && Objects.equals(filmDirector, dvd.filmDirector)
+                && dvdGenre == dvd.dvdGenre && Objects.equals(filmStudio, dvd.filmStudio)
+                && Objects.equals(familyFriendly, dvd.familyFriendly);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, duration, filmDirector, dvdGenre, filmStudio, familyFriendly);
+        return Objects.hash(duration, filmDirector, dvdGenre, filmStudio, familyFriendly);
     }
 
     @Override
     public String toString() {
         return """
                 [Dvd] [%s] [%s]
-                """.formatted(this.title, this.dvdGenre);
+                """.formatted(super.getTitle(), this.dvdGenre);
     }
 }

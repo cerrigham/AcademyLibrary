@@ -57,7 +57,8 @@ public class Ebook extends Book {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Ebook ebook = (Ebook) o;
-        return format == ebook.format && Objects.equals(dimensionInKilobyte, ebook.dimensionInKilobyte) && Objects.equals(expiringDate, ebook.expiringDate);
+        return format == ebook.format && Objects.equals(dimensionInKilobyte, ebook.dimensionInKilobyte) &&
+                Objects.equals(expiringDate, ebook.expiringDate);
     }
 
     @Override

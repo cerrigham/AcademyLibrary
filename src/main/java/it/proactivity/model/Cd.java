@@ -7,7 +7,7 @@ public class Cd extends LibraryItem {
 
     private MusicGenre musicGenre;
     private Musician musician;
-    private String title;
+
     private LocalDate dateOfPublication;
 
     public Cd() {
@@ -15,9 +15,9 @@ public class Cd extends LibraryItem {
 
     public Cd(Long id, MusicGenre musicGenre, Musician musician, String title, LocalDate dateOfCreation) {
         super.setId(id);
+        super.setTitle(title);
         this.musicGenre = musicGenre;
         this.musician = musician;
-        this.title = title;
         this.dateOfPublication = dateOfCreation;
     }
 
@@ -37,14 +37,6 @@ public class Cd extends LibraryItem {
         this.musician = musician;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public LocalDate getDateOfPublication() {
         return dateOfPublication;
     }
@@ -59,18 +51,18 @@ public class Cd extends LibraryItem {
         if (o == null || getClass() != o.getClass()) return false;
         Cd cd = (Cd) o;
         return musicGenre == cd.musicGenre && Objects.equals(musician, cd.musician) &&
-                Objects.equals(title, cd.title) && Objects.equals(dateOfPublication, cd.dateOfPublication);
+                Objects.equals(dateOfPublication, cd.dateOfPublication);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(musicGenre, musician, title, dateOfPublication);
+        return Objects.hash(musicGenre, musician, dateOfPublication);
     }
 
     @Override
     public String toString() {
         return """
                 [Cd] [%s] [%s]
-                """.formatted(this.title, this.musicGenre);
+                """.formatted(super.getTitle(), this.musicGenre);
     }
 }
