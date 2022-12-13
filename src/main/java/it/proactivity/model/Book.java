@@ -1,8 +1,5 @@
 package it.proactivity.model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Objects;
 
 public class Book extends LibraryItem {
@@ -23,10 +20,10 @@ public class Book extends LibraryItem {
     public Book(String title, Author author, PublishingHouse publishingHouse, Long id, Float price,
                 Integer numberOfPages, String yearOfPublication, String reprint, Genre genre,
                 String isbn) {
+        super.setId(id);
         this.title = title;
         this.author = author;
         this.publishingHouse = publishingHouse;
-        super.setId(id);
         this.price = price;
         this.numberOfPages = numberOfPages;
         this.yearOfPublication = yearOfPublication;
