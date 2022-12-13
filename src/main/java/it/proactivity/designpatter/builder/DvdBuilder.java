@@ -27,26 +27,32 @@ public class DvdBuilder {
         this.title = title;
         return this;
     }
+
     public DvdBuilder duration(Float duration) {
         this.duration = duration;
         return this;
     }
+
     public DvdBuilder filmDirector(FilmDirector filmDirector) {
         this.filmDirector = filmDirector;
         return this;
     }
+
     public DvdBuilder dvdGenre(DvdGenre dvdGenre) {
         this.dvdGenre = dvdGenre;
         return this;
     }
+
     public DvdBuilder filmStudio(FilmStudio filmStudio) {
         this.filmStudio = filmStudio;
         return this;
     }
+
     public DvdBuilder familyFriendly(Boolean familyFriendly) {
         this.familyFriendly = familyFriendly;
         return this;
     }
+
     public Dvd build() {
         return new Dvd(id, title, duration, filmDirector, dvdGenre, filmStudio, familyFriendly);
     }

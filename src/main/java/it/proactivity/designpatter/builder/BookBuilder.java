@@ -29,34 +29,42 @@ public class BookBuilder {
         this.title = title;
         return this;
     }
+
     public BookBuilder author(Author author) {
         this.author = author;
         return this;
     }
+
     public BookBuilder publishingHouse(PublishingHouse publishingHouse) {
         this.publishingHouse = publishingHouse;
         return this;
     }
+
     public BookBuilder price(Float price) {
         this.price = price;
         return this;
     }
+
     public BookBuilder numberOfPages(Integer numberOfPages) {
         this.numberOfPages = numberOfPages;
         return this;
     }
+
     public BookBuilder yearOfPublication(String yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
         return this;
     }
+
     public BookBuilder reprint(String reprint) {
         this.reprint = reprint;
         return this;
     }
+
     public BookBuilder genre(Genre genre) {
         this.genre = genre;
         return this;
     }
+
     public BookBuilder isbn(String isbn) {
         this.isbn = isbn;
         return this;

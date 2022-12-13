@@ -32,34 +32,42 @@ public class EbookBuilder {
         this.title = title;
         return this;
     }
+
     public EbookBuilder author(Author author) {
         this.author = author;
         return this;
     }
+
     public EbookBuilder publishingHouse(PublishingHouse publishingHouse) {
         this.publishingHouse = publishingHouse;
         return this;
     }
+
     public EbookBuilder price(Float price) {
         this.price = price;
         return this;
     }
+
     public EbookBuilder numberOfPages(Integer numberOfPages) {
         this.numberOfPages = numberOfPages;
         return this;
     }
+
     public EbookBuilder yearOfPublication(String yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
         return this;
     }
+
     public EbookBuilder reprint(String reprint) {
         this.reprint = reprint;
         return this;
     }
+
     public EbookBuilder genre(Genre genre) {
         this.genre = genre;
         return this;
     }
+
     public EbookBuilder isbn(String isbn) {
         this.isbn = isbn;
         return this;

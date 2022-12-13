@@ -19,23 +19,33 @@ public class PublishingHouseBuilder {
     public static PublishingHouseBuilder newBuilder(Long id) {
         return new PublishingHouseBuilder(id);
     }
+
     public PublishingHouseBuilder name(String name) {
         this.name = name;
         return this;
     }
+
     public PublishingHouseBuilder nationality(String nationality) {
         this.nationality = nationality;
         return this;
-    } public PublishingHouseBuilder city(String city) {
+    }
+
+    public PublishingHouseBuilder city(String city) {
         this.city = city;
         return this;
-    } public PublishingHouseBuilder revenue(Float revenue) {
+    }
+
+    public PublishingHouseBuilder revenue(Float revenue) {
         this.revenue = revenue;
         return this;
-    } public PublishingHouseBuilder foundator(String foundator) {
+    }
+
+    public PublishingHouseBuilder foundator(String foundator) {
         this.foundator = foundator;
         return this;
-    } public PublishingHouseBuilder numberOfEmployees(Integer numberOfEmployees) {
+    }
+
+    public PublishingHouseBuilder numberOfEmployees(Integer numberOfEmployees) {
         this.numberOfEmployees = numberOfEmployees;
         return this;
     }
