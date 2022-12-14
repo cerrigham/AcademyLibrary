@@ -412,8 +412,8 @@ public class BookListTest {
     public void sortBookList() {
         List<Book> bookList = createBookList();
         Collections.sort(bookList);
-        for (Book book : bookList) {
-            System.out.println(book);
+        for(int i = 0; i < bookList.size() - 1; i++) {
+            assertTrue(bookList.get(i).compareTo(bookList.get(i+1)) < 0);
         }
     }
 }

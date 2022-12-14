@@ -1,33 +1,15 @@
 import java.util.Objects;
 
-public class LibraryItemIdTitleClassNameItem {
+public class LibraryItemIdTitleClassNameItem extends LibraryItemIdTitle {
 
-    private Long id;
-    private String title;
     private String className;
 
     public LibraryItemIdTitleClassNameItem() {}
 
     public LibraryItemIdTitleClassNameItem(Long id, String title, String className) {
-        this.id = id;
-        this.title = title;
+        super.setId(id);
+        super.setTitle(title);
         this.className = className;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getClassName() {
@@ -43,20 +25,20 @@ public class LibraryItemIdTitleClassNameItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LibraryItemIdTitleClassNameItem that = (LibraryItemIdTitleClassNameItem) o;
-        return Objects.equals(id, that.id) && Objects.equals(title, that.title) &&
+        return Objects.equals(super.getId(), that.getId()) && Objects.equals(super.getTitle(), that.getTitle()) &&
                 Objects.equals(className, that.className);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, className);
+        return Objects.hash(getId(), getTitle(), className);
     }
 
     @Override
     public String toString() {
         return "LibraryItemIdTitleClassNameItem{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "id=" + getId() +
+                ", title='" + getTitle() + '\'' +
                 ", className='" + className + '\'' +
                 '}';
     }
